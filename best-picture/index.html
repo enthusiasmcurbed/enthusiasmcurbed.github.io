@@ -124,8 +124,52 @@
 							<!--<span class="facebook_button"><div class="fb-share-button" data-href="http://tkipf.github.io/graph-convolutional-networks/" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftkipf.github.io%graph-convolutional-networks%2F&amp;src=sdkpreparse">Share</a></div></span>-->
 							</div>
 							<!--</div>-->
-							<h3 id="overview">Overview</h3>
-							<p>Many important real-world datasets come in the form of graphs or networks: social networks, knowledge graphs, protein-interaction networks, the World Wide Web, etc. (just to name a few). Yet, until recently, very little attention has been devoted to the generalization of neural network models to such structured datasets.</p>
+							<h3 id="overview">There must be a better way</h3>
+
+							<p>I like movies. I dislike awards shows. I particularly dislike the Oscars. First of all, who is this "Academy," and why do they have so much cultural power to define the "best" movies? As this <a target="_blank" href="https://www.nytimes.com/2019/02/14/movies/best-picture-oscars-voters.html">excellent NYT article</a> by Brooks Barnes confirmed this past week, the Academy of Motion Picture Arts and Sciences is made up of some pretty ridiculous people. You should really read the whole piece, but I'll include a few of my favorite highlights below.
+							</p>
+							<p>One Academy member explains why he or she is voting for "Vice":</p>
+							<blockquote cite="https://www.nytimes.com/2019/02/14/movies/best-picture-oscars-voters.html">
+							"I'm pals with one of the producers, so I feel like I have to"
+							</blockquote>
+
+							<p>Apparently a few other Academy members thought "Roma" was the best film, but they have mixed feelings about how to vote because Netflix is destroying the good old days, or something like that. Don't worry though, as Barnes notes:
+							</p>
+							<blockquote cite="https://www.nytimes.com/2019/02/14/movies/best-picture-oscars-voters.html">
+							A couple of those in the anti-Netflix group told me that they would vote for Cuarón for best director as a way to assuage their guilt.
+							</blockquote>
+
+							<p>Ahh good, let's mislead the American public regarding the quality of movies because they'd rather stream a movie than pay $15 at a theatre. These heroes are saving us all from ourselves one vote at a time.
+							</p>
+							<p>
+							One other voter believed that apparently no heroes wear capes. He described superhero movies as:
+							</p>
+							<blockquote cite="https://www.nytimes.com/2019/02/14/movies/best-picture-oscars-voters.html">
+							"the stuff that oozes out of dumpsters behind fast-food restaurants"
+							</blockquote>
+							<p>The kicker: this dude hadn't even seen "Black Panther" yet. But is his reasoning better or worse than the voter who didn't want to vote for "Black Panther" because he didn't want to give Disney any more influence? Did I mention he was at a rival studio. The average middle school bully is less vindictive than these people.</p>
+							<p>Finally, this last voter really made me laugh:</p>
+							<blockquote><p>"I love this nasty little movie, but I don't want to throw my vote away."</p>
+							</blockquote>
+							<p>Apparently, no one explained to this member that the Academy uses a <strong><a href="https://www.latimes.com/entertainment/movies/la-et-oscar-voting-20150218-story.html#page=1">preferential voting system</a></strong> designed to prevent wasted votes! There is also some other great stuff in the article such as the studio executive voting for "Green Book" out of rage. He is apparently tired of being told what movies to like and dislike. Hmm… he might want to reconsider his role in the Oscars!</p>
+							<h2 id="Let's-look-at-the-data">Let's look at the data<a class="anchor-link" href="#Let's-look-at-the-data">&#182;</a></h2><p>Since this current system is so terrible, it would make sense to give up caring who wins the Oscar for best picture. Yet, alas, I get mad about way too much stuff. As XKCD famously put it, duty calls!</p>
+							<p><img src="https://imgs.xkcd.com/comics/duty_calls.png" alt="Duty Calls"></p>
+							<p>Therefore, I decided to turn to the critics, who are paid to have ostensibly interesting opinions about movies. Though I could have performed a simple <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> search, I wanted a more complete picture of how the critics perceived each Best Picture nominee. Which film was the most consistently rated? Which film polarized the raters? Is there a clear winner? Are all the films about equal in critics eyes? These are all questions which can be more approprately answered using <a href="https://www.metacritic.com/">Metacritic</a>.</p>
+							<p>For a more in depth overview of how all these sites rate movies, I highly suggest Alissa Wilkinson's <a href="https://www.vox.com/culture/2017/8/31/16107948/rotten-tomatoes-score-get-their-ratings-top-critics-certified-fresh-aggregate-mean">article explaining the various aggregators</a>. The article also has some nice introspection on the role of a critic.</p>
+							<p>In brief, Metacritic gives each movie a score from 0 to 100, known as the METASCORE. It's a bit like a grade. Rotten Tomatoes, in contrast, simply gives the percentage of critics who like a movie. This is indeed also a score from 0 to 100; however, one can easily imagine a good movie that is easily likeable, but not great, gaining a high Rotten Tomatoes score. The METASCORE, meanwhile should be just above average (60-80 ish).</p>
+							<p>Wilkinson explains a bit more detail in her article:</p>
+							<blockquote><p>another review aggregation site, Metacritic, maintains an even smaller and more exclusive group of critics than Rotten Tomatoes — its aggregated scores cap out around 50 reviews per movie, instead of the hundreds that can make up a Tomatometer score. Metacritic’s score for a film is different from Rotten Tomatoes’ insofar as each individual review is assigned a rating on a scale of 100 and the overall Metacritic score is a weighted average, the mechanics of which Metacritic <a href="https://www.metacritic.com/faq#item19">absolutely refuses to divulge</a>. But because the site’s ratings are even more carefully controlled to include only experienced professional critics — and because the reviews it aggregates are given a higher level of granularity, and presumably weighted by the perceived influence of the critic’s publication — most critics consider Metacritic a better gauge of critical opinion.</p>
+							</blockquote>
+							<p>Since the METASCORE is hidden behind a weighted average formula with additional scaling (those fun bell curves don't go away), I'm going to largely ignore it. Instead, I'll work with the individual critic scores for each movie and aggregate them myself. And if you want to know even more, I suggest the <a href="https://www.metacritic.com/faq">Metacritic FAQ</a>.</p>
+							<p>Let's start by plotting the indivdual scores for each Best Picture nominee.</p>
+							<!--<p><img src="attachment:image.png" alt="image.png"></p>-->
+							<p>As one can see, the majority of scores are multiples of 10. This makes sense, since the Metacritic readers probably can't tell if an A.O Scott review should be a 67 or a 63. But they might be able to tell if it should be a score of 70 instead of a 60. Therefore, they generally keep the scores to nice round numbers. Some critics do write in to Metacritic and correct their scores, thus some may be very precise. For example, A.A. Dowd's score for Green Book is a 58; maybe he is like the sadistic teacher who just doesn't want to see that one kid pass.</p>
+							<p>Another noteworthy detail from this plot is that a lot of critics give scores of 100 to good movies. Furthermore, the reviews for "Green Book," "Vice," and "Bohemian Rhapsody" are quite spread out -- indicating that critics' opinions of these films vary significantly. Given the subject matters of "Green Book" and "Vice," this is not that surprising.</p>
+							<p>Another, less convoluted way to visualize this data is to plot the average critic score for each movie. The plot below shows just that, along with bootstrapped 95$% confidence intervals (always give a measure of the variation, my former Physics professor shouts in my mind). Interestingly, the red dots show the aggregated METASCORE, which is not always that close to the average. For example, the "Bohemian Rahpsody" METASCORE is not even included in the confidence interval. Therefore, we suspect that some of the critics who rated this film negatively are weighted quite highly in the Metascore weighted average rating.</p>
+							<p>In order to find these specific critics and to see which critics like which nominees, I have constructed the heatmap below showing how each critic rated each film. Note that only those critics who reviewed over half of the films are included. As can be seen, the two critics rating "Bohemian Rahpsody" most negatively were Richard Roeper and A.O. Scott, thus it makes some sense that these two giants of film criticism would be weighted heavily in the Metacritic algorithm.</p>
+
+
+
 							<p>In the last couple of years, a number of papers re-visited this problem of generalizing neural networks to work on arbitrarily structured graphs (<a target="_blank" href="http://arxiv.org/abs/1312.6203">Bruna et al.</a>, ICLR 2014; <a target="_blank" href="http://arxiv.org/abs/1506.05163">Henaff et al.</a>, 2015; <a target="_blank" href="http://papers.nips.cc/paper/5954-convolutional-networks-on-graphs-for-learning-molecular-fingerprints">Duvenaud et al.</a>, NIPS 2015; <a target="_blank" href="https://arxiv.org/abs/1511.05493">Li et al.</a>, ICLR 2016; <a target="_blank" href="https://arxiv.org/abs/1606.09375">Defferrard et al.</a>, NIPS 2016; <a target="_blank" href="http://arxiv.org/abs/1609.02907">Kipf &amp; Welling</a>, ICLR 2017), some of them now achieving very promising results in domains that have previously been dominated by, e.g., kernel-based methods, graph-based regularization techniques and others.</p>
 
 							<div id="vis"></div>
