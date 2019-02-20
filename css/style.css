@@ -269,6 +269,11 @@
 		text-align: right;
 	}
 
+	.align-altair {
+		display: block;
+		margin: 0 auto;
+	}
+
 /* Section/Article */
 
 	section.special, article.special, header.special {
