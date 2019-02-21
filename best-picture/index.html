@@ -234,11 +234,28 @@
 					        .catch(error => showError(el_RT, error));
 
 					  </script>
-					  <p class="caption">Each circle in the left plot corresponds to a single film. Using your mouse and its scroll wheel, you can zoom in on the left plot, as well as click and drag to bring certain points to the center of view. Clicking on a point, will highligt a single histogram in the right chart, which shows the distribution of critic reviews on Metacritic for that film. </p>
+					  <p class="caption">Each circle in the left plot corresponds to a single film. Using your mouse and its scroll wheel, you can zoom in on the left plot, as well as click and drag to bring certain points to the center of view. Clicking on a point, will highlight a single histogram in the right chart, which shows the distribution of critic reviews on Metacritic for that film. </p>
 					</div>
 
 
-							<p>In this post, I will give a brief overview of recent developments in this field and point out strengths and drawbacks of various approaches. The discussion here will mainly focus on two recent papers:</p>
+							<p>To see the usefulness of Metacritic, I highly suggest you click on yellow dot form "Roma," then click on the orange dot corresponding to "BlacKkKlansman." The two films are almost on top of each other in the left plot, with similar Rotten Tomatoes and IMDb scores, but the difference between histograms in the right chart is significant. Thus, I highly suggest looking at individual critic scores on Metacritic when evaluating whether to watch a film. You can even use the previously shown heatmap to find which critics you agree with and just look at their scores.</p>
+
+							<h3 id="who-would win">So who would win?</h3>
+
+							<p>All of the previous charts have shown that "Roma" is the movie most loved by critics. However, this does not necessarily mean that it would always win the Oscar for Best Picture if the critics were voting. This phenomena can occur because second place votes can matter a lot in the preferred voting method used for deciding Best Picture.</p>
+
+							<p>To understand the voting process, I highly suggest <a href="https://fivethirtyeight.com/features/academy-awards-best-picture-instant-runoff/">this article</a> written by Walt Hickey at FiveThirtyEight.</p> He also wrote <a href="https://fivethirtyeight.com/features/oscar-voting-is-engineered-to-favor-movies-like-la-la-land/">another good article</a> on how this voting process can favor films with "with broad majority appeal over ones that have strong plurality appeal." In case you care, this is one reason why many political scientists favor ranked-choice voting; it forces the candidates to try to appeal to everyone instead of villainizing all your opponenets and their supporters. 
+
+							Anyway, here is the process as nicely described in the second FiveThirtyEight article:
+
+							<blockquote>
+							<ol>
+							<li> <p>Count up all the first-choice votes.</p></li>
+							<li> <p>If a movie gets a majority, that’s the winner. If none does, eliminate the last-place movie from contention.</p></li>
+							<li> <p>Take all of the ballots with the eliminated movie at the top. Reapportion them to each voter’s next preferred movie.</p></li>
+							<li> <p>Go back to step two.</p></li>
+							</ol>
+							</blockquote>
 
 
 							<ul>
