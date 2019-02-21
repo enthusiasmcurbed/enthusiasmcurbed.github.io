@@ -244,9 +244,9 @@
 
 							<p>All of the previous charts have shown that "Roma" is the movie most loved by critics. However, this does not necessarily mean that it would always win the Oscar for Best Picture if the critics were voting. This phenomena can occur because second place votes can matter a lot in the preferred voting method used for deciding Best Picture.</p>
 
-							<p>To understand the voting process, I highly suggest <a href="https://fivethirtyeight.com/features/academy-awards-best-picture-instant-runoff/">this article</a> written by Walt Hickey at FiveThirtyEight.</p> He also wrote <a href="https://fivethirtyeight.com/features/oscar-voting-is-engineered-to-favor-movies-like-la-la-land/">another good article</a> on how this voting process can favor films with "with broad majority appeal over ones that have strong plurality appeal." In case you care, this is one reason why many political scientists favor ranked-choice voting; it forces the candidates to try to appeal to everyone instead of villainizing all your opponenets and their supporters. 
+							<p>To understand the voting process, I highly suggest <a href="https://fivethirtyeight.com/features/academy-awards-best-picture-instant-runoff/">this article</a> written by Walt Hickey at FiveThirtyEight. He also wrote <a href="https://fivethirtyeight.com/features/oscar-voting-is-engineered-to-favor-movies-like-la-la-land/">another good article</a> on how this voting process can favor films with "with broad majority appeal over ones that have strong plurality appeal." In case you care, this is one reason why many political scientists favor ranked-choice voting; it forces the candidates to try to appeal to everyone instead of villainizing all your opponenets and their supporters.</p>
 
-							Anyway, here is the process as nicely described in the second FiveThirtyEight article:
+							<p>Anyway, here is the process as nicely described in the second FiveThirtyEight article:</p>
 
 							<blockquote>
 							<ol>
@@ -256,6 +256,19 @@
 							<li> <p>Go back to step two.</p></li>
 							</ol>
 							</blockquote>
+
+							<p>Unfortunately, fully simulating this process requires knowing how each critic ranks each film in order from 1-8. I don't have this data. However, Metacritic <a href="https://www.metacritic.com/feature/film-critics-list-the-top-10-movies-of-2018">nicely collects the data from all the year end top 10 films llsts </a> put out by various critics and publications. Metacritic aggregates this data using its own scoring system, which you can definitely check out, but it seems a bit arbitrary to me. Instead, I figured I might as well try to approximate the Oscar voting process as closely as possible. </p>
+
+							<p> To start, I had the data from approximately 300 top ten lists. Interestingly, around 50 of these lists did not include a single one of the Oscar Best Picture nominees on the list. This is odd but partly because these critics were choosing from many films including documentaries and probably wanted to show how unique they were. I made the explicit modeling decision to not include these critics in the simulation. This is quite an assumption, but I am also having trouble imagining an Oscar voter who does not have a single Best Picture nominee in his or her top ten films of the year list (I could be really wrong about this).</p>
+
+							<p> Either way, I first wanted to visualize how the nominees perform on these lists. Is "Roma" again the most liked film? The resounding answer is, yes. To see this, I plotted below how many times each film was placed at a specific rank in the top 10 lists. For example, the first plot shows that "Roma" was chosen as the best film of the year on approximately 70 lists, chosen as the second best film on ~30 lists, third best film on ~20 lists, etc...</p>
+
+							<div class="figure">
+							<img src="images/top_ten_subplots.svg" style="display: grid; justify-content: center;"/>
+							<p class="caption">Plots showing the number of times each film was placed at a specific rank in the approximately 247 top ten films of the year lists from critics. </p>
+							</div>
+
+
 
 
 							<ul>
