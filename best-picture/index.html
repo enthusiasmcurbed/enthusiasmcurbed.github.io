@@ -124,7 +124,12 @@
 							<!--<span class="facebook_button"><div class="fb-share-button" data-href="http://tkipf.github.io/graph-convolutional-networks/" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftkipf.github.io%graph-convolutional-networks%2F&amp;src=sdkpreparse">Share</a></div></span>-->
 							</div>
 							<!--</div>-->
-							<h3 id="overview">There must be a better way</h3>
+
+							<h3 id="overview">Overview</h3>
+							<p>Using crtic scores for each Best Picture nominee from <a href="https://www.metacritic.com/">Metacritic</a>, we first examine how the critics view each of the films. Next, using <a href="https://www.metacritic.com/feature/film-critics-list-the-top-10-movies-of-2018">over 200 year-end top 10 lists</a>, we simulate which movie would win Best Picture given this population of voters. Since the diverse authors of this list include well-known critics, staff of local papers, and niche international film websites, this is perhaps the best approximation of a true Best Picture available. One can also infer a prediction for the Oscar Best Picture winner based on this simulation; however, the ability/motivation for the Academy to select the best movie is observed to be questionable, at best. 
+							</p>
+
+							<h3 id="a-better-way">There must be a better way</h3>
 
 							<p>I like movies. I dislike awards shows. I particularly dislike the Oscars.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> First of all, who is this "Academy," and why do they have so much cultural power to define the "best" movies? As this <a target="_blank" href="https://www.nytimes.com/2019/02/14/movies/best-picture-oscars-voters.html">excellent NYT article</a> by Brooks Barnes confirmed this past week, the Academy of Motion Picture Arts and Sciences is made up of some pretty ridiculous people. You should really read the whole piece, but I'll include a few of my favorite highlights below.
 							</p>
@@ -185,6 +190,8 @@
 							<img src="images/error_bar_chart.svg" style="display: grid; justify-content: center;"/>
 							<p class="caption">Each black dot corresponds to the simple average critic rating for a given film. The error bars give 95% confidence intervals obtained through statistical resampling. The red dots give the METASCORE, a proprietary weighted average of the scores.</p>
 							</div>
+
+							<p>Again, we see that "Roma" is the film most favored by the critics. However, for those of you who took statistics, the overlapping confidence intervals between "Roma" and "The Favourite" raise some doubt if "Roma" is unequivocally the most liked movie. However, our later analysis of year-end top 10 lists will add further evidence that "Roma" is the number one choice of the critics.</p>
 
 							<p>Interestingly, the red dots show the aggregated METASCORE, which is not always close to the average. For example, the "Bohemian Rhapsody" METASCORE is not even included in the confidence interval. Therefore, we suspect that some of the critics who rated this film negatively are weighted quite highly in the Metascore weighted average rating.</p> 
 
@@ -265,7 +272,7 @@
 							</ol>
 							</blockquote>
 
-							<p>Unfortunately, fully simulating this process requires knowing how each critic ranks each film in order from 1-8. I don't have this data. However, Metacritic <a href="https://www.metacritic.com/feature/film-critics-list-the-top-10-movies-of-2018">nicely collects the data from all the year end top 10 films llsts </a> put out by various critics and publications. Metacritic aggregates this data using its own scoring system, which you can definitely check out, but it seems a bit arbitrary to me. Instead, I figured I might as well try to approximate the Oscar voting process as closely as possible. </p>
+							<p>Unfortunately, fully simulating this process requires knowing how each critic ranks each film in order from 1-8. I don't have this data. However, Metacritic <a href="https://www.metacritic.com/feature/film-critics-list-the-top-10-movies-of-2018">nicely collects the data from all the year end top 10 films llsts </a> put out by various critics and publications. The sources are quite varied and include the usual critics as well as those from local papers and some interesting film blogs. This population is certainly more diverse than the select Metacritic approved critics used earlier. Metacritic aggregates the list data using its own scoring system, which you can definitely check out, but it seems a bit arbitrary to me. Instead, I figured I might as well try to approximate the Oscar voting process as closely as possible. </p>
 
 							<p> To start, I had the data from approximately 300 top ten lists. Interestingly, a good number of these lists did not include a single one of the Oscar Best Picture nominees on the list. This is odd but partly because these critics were choosing from many films including documentaries and probably wanted to show how unique they were. I made the explicit modeling decision to not include these critics in the simulation. This is quite an assumption, but I am also having trouble imagining an Oscar voter who does not have a single Best Picture nominee in his or her top ten films of the year list (I could be really wrong about this).</p>
 
@@ -343,12 +350,12 @@
 								<p class="caption">The histogram shows how often "Roma" wins automatically after a first round of voting. The simulation used a bootstrapping approach where top ten lists were statistically resampled. </p>
 								</div>
 
-							  <p>  If you are interested in more of the details of the simulation, feel free to comment or ask; the code involves a bit of trickery, but is not too complex. Overall, these lopsided results are pretty boring; however, rest assured, these critics are not the Oscar voters, so there is plenty of room for drama come Sunday. Though "Roma" definitely wins 'Real Best Picture' under my artificial criterion, I'm sure the Academy will find a way to create drama (which could have been used in the first hour of Roma...sorry!).</p>
+							  <p>  If you are interested in more of the details of the simulation, feel free to comment or ask; the code involves a bit of trickery, but is not too complex. Overall, these lopsided results are pretty boring; however, rest assured, these critics are not the Oscar voters, so there is plenty of room for surprises come Sunday. For what it's worth, betting markets seem to have "Roma" as a 60%-70% favorite to win, which seems maybe a bit low to me. However, I generally think these prediction markets are pretty well calibrated, so that's probably not too far off. Therefore, even though "Roma" definitely wins 'Real Best Picture' under my artificial criterion, I'm sure the Academy will find a way to create drama (which could have been used in the first hour of Roma...sorry!).</p>
 
 
 							  <h3 id="conclusion">Conclusion</h3>
 
-							  <p> Ultimately, the critics loved "Roma," and the data reflects that quite well. It's really quite boring how universally they loved it -- to tell the truth. Now's the embarrasing moment when I admit that I have only seen one of this year's Best Picture nominees. It was "Roma," which I'm glad I saw once but will probably never watch again. My favorite movie this year was the documentary "Minding the Gap;" I really hope it wins something. But who knows? I don't know if Hulu is supposed to be destroying the film industry like Netflix, or who the producers friends are, or if movies about skateboarders are also "the stuff that oozes out of dumpsters behind fast-food restaurants." I guess I'll find out soon and probably be angry for a little bit, just like every other year. Just another year of being angry on the internet.</p>
+							  <p> Ultimately, the critics loved "Roma," and the data reflects that quite well. It's really quite boring how universally they loved it -- to tell the truth. Now's the embarrasing moment when I admit that I have only seen one of this year's Best Picture nominees. It was indeed "Roma," which I'm glad I saw once but will probably never watch again. My favorite movie this year was the documentary "Minding the Gap;" I really hope it wins something. But who knows? I don't know if Hulu is supposed to be destroying the film industry like Netflix, or who the producers friends are, or if movies about skateboarders are also "the stuff that oozes out of dumpsters behind fast-food restaurants." I guess I'll find out soon and probably be angry for a little bit, just like every other year. Just another year of being angry on the internet.</p>
 
 
 
@@ -358,7 +365,7 @@
 							<div class="footnotes">
 							<hr />
 							<ol>
-							<li id="fn1"><p>In fairness, there have been recent attempts to appeal more to millenials like me, apparently the Oscars are just <a href="https://www.theverge.com/2019/2/20/18232253/2019-oscars-academy-awards-backlash-kevin-hart-ceremony-offscreen-awards-embarrassment">terrible at it</a>.</p></li>
+							<li id="fn1"><p>In fairness, there have been recent attempts to better appeal to millenials like me, apparently the Oscars are just <a href="https://www.theverge.com/2019/2/20/18232253/2019-oscars-academy-awards-backlash-kevin-hart-ceremony-offscreen-awards-embarrassment">terrible at it</a>.</p></li>
 							<li id="fn2"><p>The central assumption of this piece is that the people at Metacritic assigining scores to each critic review are <i>somewhat</i> accurate and consistent -- at least hopefully on a relative scale. See footnote 3, gives some reason to doubt this is always true. </p></li>
 							<li id="fn3"><p>I have no idea if A.A. Dowd actually wrote to Metacritic to correct his score. The tweet below would indicate he generally does not, since he has the same rating for "BlacKkKlansman" and "A Star Is Born" on Metacritic but shows a clear preference here.</p>
 							<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Roma &gt; BlacKkKlansman &gt; Black Panther &gt; The Favourite &gt;&gt; A Star is Born &gt;&gt;&gt; Vice &gt; Green Book &gt;&gt;&gt; Bohemian Rhapsody</p>&mdash; A.A. Dowd (@AADowd) <a href="https://twitter.com/AADowd/status/1098434624232013824?ref_src=twsrc%5Etfw">February 21, 2019</a></blockquote>
