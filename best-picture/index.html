@@ -165,7 +165,7 @@
 							<p><img src="https://imgs.xkcd.com/comics/duty_calls.png" alt="Duty Calls"></p>
 							<p>Therefore, I decided to turn to the critics, who are paid to have ostensibly interesting opinions about movies. Admittedly, these critics likely also fall prey to many of the same questionable tendencies as those plaguing Oscar voters -- people are people. And I'm sure many have friends making movies or working at studios, but at least they are required to be correct often enough that someone will read them. And most importantly, I actually can get data on what the individual critics think, unlike the mysterious Academy.</p>
 
-							<p> Though I could have just performed a simple <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> search, I wanted a more complete picture of how the critics perceived each Best Picture nominee. Which film was the most consistently rated? Which film polarized the raters? Is there a clear winner? Are all the films about equal in critics eyes? These are all questions which can be more approprately answered using <a href="https://www.metacritic.com/">Metacritic</a>.</p>
+							<p> Though I could have just performed a simple <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> search, I wanted a more complete picture of how the critics perceived each Best Picture nominee. Which film was the most consistently rated? Which film polarized the raters? Is there a clear winner? Are all the films about equal in critics eyes? These are all questions which can be more appropriately answered using <a href="https://www.metacritic.com/">Metacritic</a>.</p>
 							<p>And for a more in depth overview of how all these sites rate movies, I highly suggest Alissa Wilkinson's <a href="https://www.vox.com/culture/2017/8/31/16107948/rotten-tomatoes-score-get-their-ratings-top-critics-certified-fresh-aggregate-mean">article explaining the various aggregators</a>. The article also has some nice introspection on the role of a critic.</p>
 							<p>In brief, Metacritic gives each movie a score from 0 to 100, known as the METASCORE. It's a bit like a grade. Rotten Tomatoes, in contrast, simply gives the percentage of critics who like a movie. This is indeed also a score from 0 to 100; however, one can easily imagine a good movie that is easily likeable, but not great, gaining a high Rotten Tomatoes score. The METASCORE for that movie, meanwhile, should be just above average (60-80 ish). </p>
 
@@ -174,7 +174,7 @@
 							</blockquote>
 
 							<p>One clear advantage of Metacritic, as Wilkinson mentions, is the grade given by each critic. On Rotten Tomatoes, what does it mean that a single critic liked a movie? Did he find it the least displeasing of the multitudinous superhero movies to come out this year, or is it one of his favorite movies of all time? The Metacritic grade from each critic at least gives us an approximation. And since the METASCORE is hidden behind a weighted average formula with additional scaling (those fun bell curves don't go away), I'm going to largely ignore it. Instead, I'll work with the individual critic scores for each movie and aggregate them myself.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
-							<p>Let's start by plotting the indivdual critic scores given for each Best Picture nominee.</p>
+							<p>Let's start by plotting the individual critic scores given for each Best Picture nominee.</p>
 
 							<div class="figure">
 							<img src="images/metacritic_swarmplot.svg" style="display: grid; justify-content: center;"/>
@@ -259,7 +259,7 @@
 
 							<p>All of the previous charts have shown that "Roma" is the movie most loved by critics. However, this does not necessarily mean that it would always win the Oscar for Best Picture if the critics were voting. This phenomena can occur because second place votes can matter a lot in the preferred voting method used for deciding Best Picture.</p>
 
-							<p>To understand the voting process, I highly suggest <a href="https://fivethirtyeight.com/features/academy-awards-best-picture-instant-runoff/">this article</a> written by Walt Hickey at FiveThirtyEight. He also wrote <a href="https://fivethirtyeight.com/features/oscar-voting-is-engineered-to-favor-movies-like-la-la-land/">another good article</a> on how this voting process can favor films with "with broad majority appeal over ones that have strong plurality appeal." In case you care, this is one reason why many political scientists favor ranked-choice voting; it forces the candidates to try to appeal to everyone instead of villainizing all your opponenets and their supporters.</p>
+							<p>To understand the voting process, I highly suggest <a href="https://fivethirtyeight.com/features/academy-awards-best-picture-instant-runoff/">this article</a> written by Walt Hickey at FiveThirtyEight. He also wrote <a href="https://fivethirtyeight.com/features/oscar-voting-is-engineered-to-favor-movies-like-la-la-land/">another good article</a> on how this voting process can favor films with "with broad majority appeal over ones that have strong plurality appeal." In case you care, this is one reason why many political scientists favor ranked-choice voting; it forces the candidates to try to appeal to everyone instead of villainizing all your opponents and their supporters.</p>
 
 							<p>Anyway, here is the process as nicely described in the second FiveThirtyEight article:</p>
 
@@ -283,7 +283,7 @@
 							<p class="caption">Plots showing the number of times each film was placed at a specific rank in the approximately 300 top ten films of the year lists from critics. For example, "The Favourite" was listed as the second best film of the year on 15 separate lists. </p>
 							</div>
 
-							<p> I provide another way of viewing this info in the interactive chart below, which shows all of the films on the same plot. By clicking and dragging with your mouse, you can also brush over specific ranks on the list to see how many times each film is included at that position on the lists. By brushing over all ranks, one can see that "Roma" is included on 161 of the top ten lists, many more times than any other film. "The Favourite" comes in second with just over 100 inclusions on the lists. At the low end, "Bohemian Rhapsody" is inluded on just 6 lists, and does not get a single first place vote! That's pretty amazing for a film that won Best Drama at the Golden Globes.</p>
+							<p> I provide another way of viewing this info in the interactive chart below, which shows all of the films on the same plot. By clicking and dragging with your mouse, you can also brush over specific ranks on the list to see how many times each film is included at that position on the lists. By brushing over all ranks, one can see that "Roma" is included on 161 of the top ten lists, many more times than any other film. "The Favourite" comes in second with just over 100 inclusions on the lists. At the low end, "Bohemian Rhapsody" is included on just 6 lists, and does not get a single first place vote! That's pretty amazing for a film that won Best Drama at the Golden Globes.</p>
 
 							<div class="figure">
 							<div id="vis_10"></div>
@@ -304,7 +304,7 @@
 							        .catch(error => showError(el_10, error));
 
 							  </script>
-							  <p class="caption">Click and drag over horizonatal axis values on the top plot to see how many times each film is included at those ranks in the bottom bar chart.</p>
+							  <p class="caption">Click and drag over horizontal axis values on the top plot to see how many times each film is included at those ranks in the bottom bar chart.</p>
 							  </div>
 
 							  <p> Finally, we can simulate the Oscar Voting process from these lists. The simple result is that "Roma" is such a lopsided favorite of the critics that it would win Best Picture without any reapportioning of second-place votes. One may wonder how this is true since 'Roma' only has 65 first place votes out of the 247 lists, and this is not even close to 50%. However, what we really care about is how often it is first on the list <i> among the best picture nominees on each list</i>. Since "Roma" also has lots of second and third place votes <i>among all 2018 films</i>, this happens quite a lot. </p>
@@ -365,8 +365,8 @@
 							<div class="footnotes">
 							<hr />
 							<ol>
-							<li id="fn1"><p>In fairness, there have been recent attempts to better appeal to millenials like me, apparently the Oscars are just <a href="https://www.theverge.com/2019/2/20/18232253/2019-oscars-academy-awards-backlash-kevin-hart-ceremony-offscreen-awards-embarrassment">terrible at it</a>.</p></li>
-							<li id="fn2"><p>The central assumption of this piece is that the people at Metacritic assigining scores to each critic review are <i>somewhat</i> accurate and consistent -- at least hopefully on a relative scale. See footnote 3, gives some reason to doubt this is always true. </p></li>
+							<li id="fn1"><p>In fairness, there have been recent attempts to better appeal to millennials like me, apparently the Oscars are just <a href="https://www.theverge.com/2019/2/20/18232253/2019-oscars-academy-awards-backlash-kevin-hart-ceremony-offscreen-awards-embarrassment">terrible at it</a>.</p></li>
+							<li id="fn2"><p>The central assumption of this piece is that the people at Metacritic assigning scores to each critic review are <i>somewhat</i> accurate and consistent -- at least hopefully on a relative scale. See footnote 3, gives some reason to doubt this is always true. </p></li>
 							<li id="fn3"><p>I have no idea if A.A. Dowd actually wrote to Metacritic to correct his score. The tweet below would indicate he generally does not, since he has the same rating for "BlacKkKlansman" and "A Star Is Born" on Metacritic but shows a clear preference here.</p>
 							<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Roma &gt; BlacKkKlansman &gt; Black Panther &gt; The Favourite &gt;&gt; A Star is Born &gt;&gt;&gt; Vice &gt; Green Book &gt;&gt;&gt; Bohemian Rhapsody</p>&mdash; A.A. Dowd (@AADowd) <a href="https://twitter.com/AADowd/status/1098434624232013824?ref_src=twsrc%5Etfw">February 21, 2019</a></blockquote>
 							<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
