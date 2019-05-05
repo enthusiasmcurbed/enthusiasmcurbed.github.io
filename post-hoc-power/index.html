@@ -128,7 +128,7 @@
 
 							<h3 id="overview">Does Post-Hoc Power Corrupt?</h3>
 
-							<p>Yesterday, I came across <a href="https://lesslikely.com/statistics/observed-power-magic/">this very nice post</a> by Zad Chow on Twitter regarding <a href="https://en.wikipedia.org/wiki/Power_(statistics)"> statistical power </a>. Apparently, the post was inspired by a <a href='https://discourse.datamethods.org/t/observed-power-and-other-power-issues/731/2'> long discussion </a> on the datamethods Discourse discussion board. I highly recommend Zad Chow's aforementioned post and <a href="https://lesslikely.com/statistics/misplaced-power/"> older blog post </a> for the relevant background. Basically, the issue involves several statisticians telling several surgeons that calculating the "observed power" from the observed study data is a bad idea. The surgeons do not agree. Some jokes about surgeons thinking they know everything ensue. 
+							<p>Yesterday, I came across <a href="https://lesslikely.com/statistics/observed-power-magic/">this very nice post</a> by Zad Chow on Twitter regarding <a href="https://en.wikipedia.org/wiki/Power_(statistics)"> statistical power</a>. Apparently, the post was inspired by a <a href='https://discourse.datamethods.org/t/observed-power-and-other-power-issues/731/2'> long discussion </a> on the DataMethods Discourse discussion board. I highly recommend Zad Chow's aforementioned post and <a href="https://lesslikely.com/statistics/misplaced-power/"> older blog post </a> for the relevant background. Basically, the issue involves several statisticians telling several surgeons that calculating the "observed power" from the observed study data is a bad idea. The surgeons do not agree. Some jokes about surgeons thinking they know everything ensue. 
 							</p>
 
 							<p>Let me be clear: I have no specific stake in this fight. I am not a statistician, nor a surgeon. Though I guess all of us who may require surgery one day have quite a big stake in this issue...a discussion for another time. My main interest were the simulations in Zad Chow's newest post, which are presented below:
@@ -140,11 +140,15 @@
 
 							<p>The figure is quite nice, and includes a lot of information. Borrowing Chow's description directly from the post:
 							<blockquote cite="https://lesslikely.com/statistics/observed-power-magic/">
+							<p>
 							Here, I simulate 45,000 studies from a normal distribution and where I have set a true between-group difference of d = 0.5.
-
+							</p>
+							<p>
 							Group A has a mean of 25 and standard deviation of 10, and group B has a mean of 20 and also a standard deviation of 10. Thus, (25-20)/10 gives us a standardized effect size of 0.5. This is the true effect size, something we would rarely know in the real world (the true effect size is unknown, we can only attempt to estimate it).
-
+							</p>
+							<p>
 							In this simulation, the studies can be categorized by nine different sample sizes, meaning they have varying true power (something we know because it’s a simulation). True power ranges all the way from 10% to 90% and each of the nine scenarios has samples simulated from a normal distribution.
+							</p>
 							</blockquote>
 
 							As can be seen in the figure, the rough shapes of the curves for different N (and thus true power) are basically all the same. The main differenence is the changing density of points; as N increases, the observed p-values cluster closer to 0. I found this a bit hard to see on the original plots. From the figure, it is also a bit hard to know if the observed power values say anything about the true power value. Apparently, <a href="https://twitter.com/venkmurthy/status/1124609163945029634">at least one other person</a> was interested in this, so I replicated the results and added marginal distributions. The changing marginal distributions are shown in the GIF below:
@@ -158,7 +162,7 @@
 							<p>
 							The python code for producing these plots is also included below:
 							</p>
-							<pre>
+							
 							<code>
 							import numpy as np
 							import pandas as pd
@@ -213,7 +217,7 @@
 							    # print(f'Mean of observed powers: {np.mean(power_list)}')
 							    # print(f'Median of observed powers: {np.median(power_list)}')
 							</code>
-							</pre>
+							
 
 							<p>As is clear from the marginal distributions, the distribution of observed powers does indeed reflect the true power, and can be quite spread out in certain cases. In fact, the median of the distribution of observed powers is often quite close to the true power. This is not the issue. The issue is that the distribution of observed p-values and observed powers change together. Observed power, is after all a 1:1 function of the p-value. Thus, one problem is that it provides no new information not provided by the p-value.
 							</p>
@@ -254,7 +258,7 @@
 							<p class="caption">The confidence interval limits are calculated simply using the percentile method</p>
 							</div>
 
-							<p>The code to produce these plots is below and relies on a slightly long, but simple function <tt>bootstrap_two_sample_ttest()</tt> that I have shared in a github gist. </p>
+							<p>The code to produce these plots is below and relies on a slightly long, but simple function <tt>bootstrap_two_sample_ttest()</tt> that I have shared in a <a href="https://gist.github.com/enthusiasmcurbed/f353c967aab635f2d794a5c0df68ef9b" > github gist</a>. </p>
 
 							<pre>
 							<code>
