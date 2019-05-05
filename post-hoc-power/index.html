@@ -224,7 +224,7 @@ for idx, size in enumerate(size_list):
 							<p>As is clear from the marginal distributions, the distribution of observed powers does indeed reflect the true power, and can be quite spread out in certain cases. In fact, the median of the distribution of observed powers is often quite close to the true power. This is not the issue. The issue is that the distribution of observed p-values and observed powers change together. Observed power, is after all a 1:1 function of the p-value. Thus, one problem is that it provides no new information not provided by the p-value.
 							</p>
 
-							<p>But the main issue is slightly more insidious. Since the observed power increases as the observed p-value decreases and vice versa, we run into the following sitation:
+							<p>But the main issue is slightly more insidious. Since the observed power increases as the observed p-value decreases and vice versa, we run into the following situation:
 							<ul>
 							  <li>Significant results (based on p-value) will have higher observed powers</li>
 							  <li>Non-Significant results (based on p-value) will have lower observed powers</li>
@@ -282,7 +282,7 @@ bootstrap_two_sample_ttest(x, y, method='resample')
 
 							<h3 id="overview">Do we need post-hoc power?</h3>
 
-							<p>Honestly, I have zero right to have a say on this issue. I'll refer to the statisticians on this one. The bootstrapping approach above might assuage some of their complaints. But I suspect the best way to go is to do some relevant power calculations before the experimnent, and design a good experiment. A little thinking early on probably goes a long way. </p>
+							<p>Honestly, I have zero right to have a say on this issue. I'll refer to the statisticians on this one. The bootstrapping approach above might assuage some of their complaints. But I suspect the best way to go is to do some relevant power calculations before the experiment, and design a good experiment. A little thinking early on probably goes a long way. </p>
 
 							<p>After the experiment, once you know your sample sizes and such, Andrew Althouse suggests "that rather than computing an 'observed power' based on the study effect size, that they could report the 'power' the study would’ve had to detect a modest difference that may have been clinically relevant." In visual form, for the above bootstrapped example with true power=70%, a simple plot to convey this info could be constructed as below:</p>
 
