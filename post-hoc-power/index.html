@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Post-Hoc Power | Enthusiasm Curbed</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@cutearguments">
+		<meta name="twitter:title" content="The Real Best Picture">
+		<meta name="twitter:description" content="A look at the data">
+		<meta name="twitter:creator" content="@cutearguments">
+		<meta name="twitter:domain" content="http://enthusiasmcurbed.github.io/best-picture/">
+		<!--<meta name="twitter:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
+		<meta property="og:title" content="Post-Hoc Power: Examining Zad Chow's post" />
+		<!--<meta property="og:description" content="Many important real-world datasets come in the form of graphs or networks: social networks, knowledge graphs, protein-interaction networks, the World Wide Web, etc. (just to name a few). Yet, until recently, very little attention has been devoted to the generalization of neural..." /-->
+		<!--<meta name="og:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
+		<meta name="og:url" content="http://enthusiasmcurbed.github.io/post-hoc-power/">
+
+		<noscript>
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/skel.css" />
+			<link rel="stylesheet" href="/css/style-xlarge.css" />
+		</noscript>
+		<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+		<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Open+Sans">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-layers.min.js"></script>
+		<script src="/js/init.js"></script> <!-- NOTE: Pulls CSS files from static server -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+		<script>
+			$(document).ready(function(){
+				$('video').click( function(){
+					if (this.paused) {
+			        this.play();
+			    } else {
+			        this.pause();
+			    }
+			    return false;
+				});
+			});
+		</script>
+
+		<style>
+	    .vega-actions a {
+	        margin-right: 12px;
+	        color: #757575;
+	        font-weight: normal;
+	        font-size: 13px;
+	    }
+	    .error {
+	        color: red;
+	    }
+	    </style>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@4"></script>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+	</head>
+	<body class="landing">
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<!-- Newsharecounts twitter counter (currently doesn't count re-tweets - bug?)
+		<script type="text/javascript" src="//newsharecounts.s3-us-west-2.amazonaws.com/nsc.js"></script><script type="text/javascript">window.newShareCountsAuto="smart";</script>
+		-->
+		<!-- Opensharecount twitter counter -->
+		<script type="text/javascript" src="//opensharecount.com/bubble.js"></script>
+
+		<!-- Header -->
+			<header id="header">
+				<ul class="icons">
+					<li>
+						<a href="https://github.com/enthusiasmcurbed" class="icon fa-github"></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/cutearguments" class="icon fa-twitter"></a>
+					</li>
+				</ul>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<!--<li><a href="/#two">Publications</a></li>-->
+						<li><a href="/best-picture/" class="active">Blog</a></li>
+						<li><a href="/best-picture/#footer">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- One -->
+				<section id="one" class="wrapper style1 special blogwrapper">
+					<div class="container 75%">
+						<header class="major blogheader">
+							<h2>Post-Hoc Power: <br> Examining Zad Chow's Post</h2>
+							<p>Enthusiasm Curbed, February 20, 2019</p>
+						</header>
+						<div class="align-left blog">
+							<!--
+							<div class="figure">
+							<img src="images/gcn_web.png" alt="Multi-layer Graph Convolutional Network (GCN) with first-order filters." />
+							<p class="caption">Multi-layer Graph Convolutional Network (GCN) with first-order filters.</p>
+							-->
+							<div class="social_buttons">
+							<span class="twitter_button"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Post-Hoc Power: Examining Zad Chow's Post" data-url="http://enthusiasmcurbed.github.io/best-picture/" data-via="cutearguments" data-lang="en" data-show-count="false">Tweet</a> <a href="http://leadstories.com/opensharecount" target="_blank" class="osc-counter" data-dir="left"  data-url="http://enthusiasmcurbed.github.io/best-picture/" title="Powered by Lead Stories' OpenShareCount">0</a></span>
+  
+							<!--<span class="facebook_button"><div class="fb-share-button" data-href="http://tkipf.github.io/graph-convolutional-networks/" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftkipf.github.io%graph-convolutional-networks%2F&amp;src=sdkpreparse">Share</a></div></span>-->
+							</div>
+							<!--</div>-->
+
+
+							<h3 id="overview">Does Post-Hoc Power Corrupt?</h3>
+
+							<p>Yesterday, I came across <a href="https://lesslikely.com/statistics/observed-power-magic/">this very nice post</a> by Zad Chow on Twitter regarding <a href="https://en.wikipedia.org/wiki/Power_(statistics)"> statistical power </a>. Apparently, the post was inspired by a <a href='https://discourse.datamethods.org/t/observed-power-and-other-power-issues/731/2'> long discussion </a> on the datamethods Discourse discussion board. I highly recommend Zad Chow's aforementioned post and <a href="https://lesslikely.com/statistics/misplaced-power/"> older blog post </a> for the relevant background. Basically, the issue involves several statisticians telling several surgeons that calculating the "observed power" from the observed study data is a bad idea. The surgeons do not agree. Some jokes about surgeons thinking they know everything ensue. 
+							</p>
+
+							<p>Let me be clear: I have no specific stake in this fight. I am not a statistician, nor a surgeon. Though I guess all of us who may require surgery one day have quite a big stake in this issue...a discussion for another time. My main interest were the simulations in Zad Chow's newest post, which are presented below:
+
+							<div class="figure">
+							<img src="images/FakePower_norandom.png" style="display: grid; justify-content: center;"/>
+							<p class="caption">Taken from https://lesslikely.com/statistics/observed-power-magic/ </p>
+							</div>
+
+							<p>The figure is quite nice, and includes a lot of information. Borrowing Chow's description directly from the post:
+							<blockquote cite="https://lesslikely.com/statistics/observed-power-magic/">
+							Here, I simulate 45,000 studies from a normal distribution and where I have set a true between-group difference of d = 0.5.
+
+							Group A has a mean of 25 and standard deviation of 10, and group B has a mean of 20 and also a standard deviation of 10. Thus, (25-20)/10 gives us a standardized effect size of 0.5. This is the true effect size, something we would rarely know in the real world (the true effect size is unknown, we can only attempt to estimate it).
+
+							In this simulation, the studies can be categorized by nine different sample sizes, meaning they have varying true power (something we know because it’s a simulation). True power ranges all the way from 10% to 90% and each of the nine scenarios has samples simulated from a normal distribution.
+							</blockquote>
+
+							As can be seen in the figure, the rough shapes of the curves for different N (and thus true power) are basically all the same. The main differenence is the changing density of points; as N increases, the observed p-values cluster closer to 0. I found this a bit hard to see on the original plots. From the figure, it is also a bit hard to know if the observed power values say anything about the true power value. Apparently, <a href="https://twitter.com/venkmurthy/status/1124609163945029634">at least one other person</a> was interested in this, so I replicated the results and added marginal distributions. The changing marginal distributions are shown in the GIF below:
+							</p>
+
+							<div class="figure">
+							<img src="images/marginal_dists.gif" style="display: grid; justify-content: center;"/>
+							<p class="caption">The changing marginal distributions for both the observed p-values and observed powers. </p>
+							</div>
+							
+							<p>
+							The python code for producing these plots is also included below:
+							</p>
+							<pre>
+							<code>
+							import numpy as np
+							import pandas as pd
+							import matplotlib.pyplot as plt
+							import scipy.stats
+							from statsmodels.stats.power import TTestIndPower
+
+							meanA = 25
+							meanB = 20
+							SD = 10
+
+							size_list = [10,22,36,50,64,82,102,128,172] 
+							for idx, size in enumerate(size_list):
+							    N = int(size/2)
+							    n_iters = 5000
+							    p_value_list = []
+							    effect_size_list = []
+							    power_list = []
+							    for _ in range(n_iters):
+
+							        x = np.random.normal(meanA, SD, size=N)
+							        y = np.random.normal(meanB, SD, size=N)
+
+							        # calculate observed p_value
+							        # p_value = scipy.stats.ttest_ind(x, y, equal_var = False)[1]
+							        p_value = scipy.stats.ttest_ind(x, y, equal_var = False)[1]
+							        
+							        # Computes the standard deviations of both groups and pools them
+							        pooled_std = np.sqrt(
+							                        (((N-1))*(np.std(x)**2) + ((N-1)*(np.std(y)**2)))
+							                        /((N*2)-2)
+							                    )
+
+							        # Calculate the standardized, observed effect size 
+							        observed_effect_size = np.abs(np.mean(x)-np.mean(y))/pooled_std
+
+							        # Calculates the observed power using the observed effect size
+							        analysis = TTestIndPower()
+							        observed_power = analysis.solve_power(observed_effect_size, nobs1=N,
+							                                              ratio=1.0, alpha=0.05)
+
+							        p_value_list.append(p_value)
+							        effect_size_list.append(observed_effect_size)
+							        power_list.append(observed_power)
+							      
+							    g = sns.jointplot(p_value_list, power_list, alpha=0.01, )
+							    g.set_axis_labels('observed p-value', 'observed power', fontsize=16)
+							    plt.suptitle(f'{(idx+1)*10}% True Power (N={size})')
+							    plt.tight_layout()
+							    plt.savefig(f'post_hoc_power_N{size}.png', format='png')
+
+							    # print(f'Mean of observed powers: {np.mean(power_list)}')
+							    # print(f'Median of observed powers: {np.median(power_list)}')
+							</code>
+							</pre>
+
+							<p>As is clear from the marginal distributions, the distribution of observed powers does indeed reflect the true power, and can be quite spread out in certain cases. In fact, the median of the distribution of observed powers is often quite close to the true power. This is not the issue. The issue is that the distribution of observed p-values and observed powers change together. Observed power, is after all a 1:1 function of the p-value. Thus, one problem is that it provides no new information not provided by the p-value.
+							</p>
+
+							<p>But the main issue is slightly more insidious. Since the observed power increases as the observed p-value decreases and vice versa, we run into the following sitation:
+							<ul>
+							  <li>Significant results (based on p-value) will have higher observed powers</li>
+							  <li>Non-Significant results (based on p-value) will have lower observed powers</li>
+							</ul>
+
+							This is not good. To me, it seems like this leads to the following false beliefs:
+
+							<ul>
+							  <li>We detected a large effect, and our test was well designed to do just that.</li>
+							  <li>We did not detect an effect, but it's probably because of our low-powered test.</li>
+							</ul>
+
+							The above is particularly troublesome, when you consider the rampant publication bias in favor of significant results. This brings to mind a quote from the character Russ Cargill in the Simpsons Movie:
+
+							<blockquote>
+							Of course I’ve gone mad with power! Have you ever tried going mad without power? It’s boring and no one listens to you!
+							</blockquote>
+							</p>
+
+							<h3 id="overview">Can we fix it?</h3>
+
+							<p>
+							I spend a lot of time asking people "where are the error bars?" It seems to me, that is large part of the problem in this case. As Andrew Gelman writes in his <a href="https://journals.lww.com/annalsofsurgery/Fulltext/2019/01000/Don_t_Calculate_Post_hoc_Power_Using_Observed.46.aspx">letter to the editors of Annals of Surgery</a>:
+							<blockquote cite="https://journals.lww.com/annalsofsurgery/Fulltext/2019/01000/Don_t_Calculate_Post_hoc_Power_Using_Observed.46.aspx">
+							The problem is that the (estimated) effect size observed in a study is noisy, especially so in the sorts of studies discussed by the authors. Using estimated effect size can give a terrible estimate of power, and in many cases can lead to drastic overestimates of power (thus, extreme overconfidence of the sort that is rightly deplored by Bababekov et al. in their article), with the problem becoming even worse for studies that happen to achieve statistical significance.
+							</blockquote>
+
+							So, is there a way to see how noisy the effect size is? Well, I'll at least give it a try. If I have access to the original data, I can bootstrap confidence intervals for the difference in means without having to do any nasty math. What happens if I do the same for observed effect size and observed power? I do this below using Zad Chow's example where the true effect size is d=0.5 and N=102, such that the true power is 70%.
+							</p>
+
+							<div class="figure">
+							<img src="images/bootstrap_CIs.png" style="display: grid; justify-content: center;"/>
+							<p class="caption">The confidence interval limits are calculated simply using the percentile method</p>
+							</div>
+
+							<p>The code to produce these plots is below and relies on a slightly long, but simple function <tt>bootstrap_two_sample_ttest()</tt> that I have shared in a github gist. </p>
+
+							<pre>
+							<code>
+							meanA = 25
+							meanB = 20
+							SD = 10
+							N = 102 # 70% true power
+
+							x = np.random.normal(meanA, SD, size=int(N/2))
+							y = np.random.normal(meanB, SD, size=int(N/2))
+
+							bootstrap_two_sample_ttest(x, y, method='resample')
+							</code>
+							</pre>
+
+							<p>As one can see, the uncertainty in the observed power is quite large, and the data seems compatible with a true power basically between 0.1 and 0.9 . This is interesting considering that the bootstrapped distribution for the difference in means still seems to provide pretty good evidence against a mean difference of 0.</p>
+
+							<p>This approach appears to solve some of the earlier issues we mentioned, but the question remains: is there a need to calculate post-hoc power at all? </p>
+
+							<h3 id="overview">Do we need post-hoc power?</h3>
+
+							<p>Honestly, I have zero right to have a say on this issue. I'll refer to the statisticians on this one. The bootstrapping approach above might assuage some of their complaints. But I suspect the best way to go is to do some relevant power calculations before the experimnent, and design a good experiment. A little thinking early on probably goes a long way. </p>
+
+							<p>After the experiment, once you know your sample sizes and such, Andrew Althouse suggests "that rather than computing an 'observed power' based on the study effect size, that they could report the 'power' the study would’ve had to detect a modest difference that may have been clinically relevant." In visual form, for the above bootstrapped example with true power=70%, a simple plot to convey this info could be constructed as below:</p>
+
+							<pre>
+							<code>
+							effect_sizes = np.linspace(0,1,100)
+							analysis = TTestIndPower()
+							analysis.plot_power(dep_var='effect_size', nobs=[51], effect_size=effect_sizes)
+							plt.axhline(y=0.8, c='k', linestyle='dashed')
+							plt.ylabel('Power')
+							plt.title('Power of test with 70% true power at d=0.5')
+							plt.show()
+							</code>
+							</pre>
+
+							<div class="figure">
+							<img src="images/althouse_plot.png" style="display: grid; justify-content: center;"/>
+							<p class="caption">Note the horizontal line indicating 80% power, which is a controversial, but often used power threshold.</p>
+							</div>
+
+							<p>As the plot shows, if a clinically relevant effect size is d=0.4, then this was probably not a great experiment. But the hope is that you figured that out beforehand!</p>
+							
+
+							<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+    this.page.url = 'http://enthusiasmcurbed.github.io/post-hoc-power';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'post-hoc-power'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//enthusiasmcurbed.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+							<!--
+							<div class="figure">
+							<div class="video"><video width='640' preload='auto' muted controls poster='images/video_.png'>
+								<source src='images/video.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video>
+							</div>
+							<p class="caption">Semi-supervised classification with GCNs: Latent space dynamics for 300 training iterations with a single label per class. Labeled nodes are highlighted.</p>
+							</div>
+						-->
+						</div>
+				</section>
+
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="container">
+				<h2>Get in touch</h2>CUTEARGUMENTS [AT] GMAIL [DOT] COM</span>
+				<p></p>
+				<ul class="icons">
+					<li>
+						<a href="https://github.com/enthusiasmcurbed" class="icon fa-github"></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/cutearguments" class="icon fa-twitter"></a>
+					</li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; 2018 Enthusiasm Curbed</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	</body>
+</html>
