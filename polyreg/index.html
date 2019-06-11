@@ -126,7 +126,7 @@
 							<!--</div>-->
 
 
-							<h3 id="overview">Ahh that paper I meant to re-read...</h3>
+							<h3 id="overview">Ahh that paper I meant to reread...</h3>
 
 							<p>I don't know nearly as much statistics as I should, yet -- for some odd reason -- I enjoy watching Bayesians and Frequentists argue about issues I don't fully understand. One of the best ways to observe these discussions is to follow <a href="https://twitter.com/f2harrell">Frank Harrell on Twitter</a>. To be fair, Frank often also posts about interesting discussions on <a href='https://discourse.datamethods.org/'>DataMethods</a> and talks about statistical issues that <a href ='http://enthusiasmcurbed.github.io/post-hoc-power'> interest me too</a>. Generally, his discussions have led me to learn a suprising amount of statistics through Twitter. 
 							</p>
@@ -135,9 +135,9 @@
 							Recently, he posted his slides from a talk he gave entitled <a href='https://www.fharrell.com/talk/stratos19/'>Controversies in Predictive Modeling, Machine Learning, and Validation </a>. I'm not going to pretend that I understand everything in the slides. There are some statements I sort of understand (it's been a while since I read about the Laplace distriubtion). There are some statements I sort of feel might be wrong (isn't seeing if two ROC curves cross <a href='https://link.springer.com/article/10.1007/s10994-009-5119-5'>important</a>? / can't the slope of the early part of the curve help me understand <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432">'early behavior'</a> of a classifier?) And there is even one statement that led me to write this blog post. 
 							</p>
 
-							<p>The aformentioned "trigger" is found in the "Machine Learning" portion of his slides and really involves two statements: "deep learning ≡ neural network" and "neural network ≡ polynomial regression -- <a href="https://matloff.wordpress.com/2018/06/20/neural-networks-are-essentially-polynomial-regression/">Matloff</a>". The first is pretty standard, but the second statement caught my eye. I remember skimming the original paper, <a href="https://arxiv.org/abs/1806.06850"> Polynomial Regression As an Alternative to Neural Nets</a> by Cheng, Khomtchouk, Matloff, and Mohanty last summer but haven't thought about it much since. Matloff's blog post linked in the slides created a lot of discussion, with over 80 comments on the blog, and discussions on Hacker News and Reddit. Furthermore, if the article is still being quoted by prominent figures in the medical statistics community, maybe there is more to the article than I originally thought. So I decided to look at it again. </p>
+							<p>The aformentioned "trigger" is found in the "Machine Learning" portion of his slides and really involves two statements: "deep learning ≡ neural network" and "neural network ≡ polynomial regression -- <a href="https://matloff.wordpress.com/2018/06/20/neural-networks-are-essentially-polynomial-regression/">Matloff</a>". The first is pretty standard, but the second statement caught my eye. I remember skimming the original paper, <a href="https://arxiv.org/abs/1806.06850"> Polynomial Regression As an Alternative to Neural Nets</a> by Cheng, Khomtchouk, Matloff, and Mohanty last summer but haven't thought about it much since. Matloff's blog post linked in the slides created a lot of discussion, with over 80 comments on the blog. Furthermore, if the article is still being quoted by prominent figures in the medical statistics community, maybe there is more to the article than I originally thought. So I decided to look at it again. </p>
 
-							<h3 id="overview">Uhh that seems low???</h3>
+							<h3 id="overview">Uhh that seems low?</h3>
 
 							<p>
 							In Matloff's blog post, he makes some pretty big claims regarding his idea that neural networks are essentially polynomial regression (NNAEPR, as he calls it):
@@ -162,11 +162,11 @@
 							<img src="images/concrete_table.png" style="display: grid; justify-content: center;"/>
 							</div>
 
-							First, it's a bit weird to report the correlation coefficient <span class="math inline">r</span> and not <span class="math inline">R^2</span>, but that's unimportant. Also, the correlation coefficient has error bars -- often obtained using the <a href="https://en.wikipedia.org/wiki/Fisher_transformation">Fisher transformation</a>/bootstrapping/etc. --  which are quite large for small/moderate N. As to why the authors chose the correlation coefficient just for this one dataset, I am unsure. Lastly, and most curiously, I vaguely remembered running a simple neural network on the Concrete dataset for some unrelated reason before. Therefore, I could just look back and see how well I did compared to the top performing "polyreg" model. The answer frustrates me.
+							First, it's a bit weird to report the correlation coefficient <span class="math inline">r</span> and not <span class="math inline">$R^2$</span>, but that's unimportant. Also, the correlation coefficient has error bars -- often obtained using the <a href="https://en.wikipedia.org/wiki/Fisher_transformation">Fisher transformation</a>/bootstrapping/etc. --  which are quite large for small/moderate N. As to why the authors chose the correlation coefficient just for this one dataset, I am unsure. Lastly, and most curiously, I vaguely remembered running a simple neural network on the Concrete dataset for some unrelated reason before. Therefore, I could just look back and see how well I did compared to the top performing "polyreg" model. The answer frustrates me.
 							</p>
 
 							<p>
-							The answer frustrates me because I obtained r=0.925 with a 95% CI of (0.897, 0.945) on an independent test set in under 2 minutes of training. This didn't involve extensive hyperparameter tuning or a crazy architecture. I used the simple PyTorch DNN architecture that I use for many simple applications and used fastai for training. All details are in the attached Google Colab notebook (LINK), where anyone can run the code if they wish. As you can see from the table above, my results beat "polyreg" and drastically outperform the authors' neural net benchmarks. Do I think this is because I am an amazing magician of deep learning? No -- even though I wish that explanation were true. I think what really happened is a bit more frustrating.
+							The answer frustrates me because I obtained r=0.925 with a 95% CI of (0.897, 0.945) on an independent test set in under 2 minutes of training. This didn't involve extensive hyperparameter tuning or a crazy architecture. I used the simple PyTorch DNN architecture that I use for many simple applications and used fastai for training. All details are in the attached Google Colab <a href="https://github.com/mc-robinson/polyreg_vs_dnn_experiment/blob/master/Cheng_polyreg_experiment.ipynb">notebook</a>, where anyone can run the code if they wish. As you can see from the table above, my results beat "polyreg" and drastically outperform the authors' own neural net benchmarks. Do I think this is because I am an amazing magician of deep learning? No -- even though I wish that explanation were true. I think what really happened is a bit more frustrating.
 							</p>
 
 							<p>
@@ -187,7 +187,7 @@
 						    <h3 id="overview">Maybe someone can explain it?</h3>
 
 						    <p>
-						    I obviously have some questions about this paper. To his credit, Norm Matloff has been very responsive to comments on his blog post and perhaps will assuage my doubts. Furthermore, I am not saying that the paper is categorically of no use. Maybe there is great value to thinking of neural nets as polynomial regression. As Dan Simpson <a href="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/"> writes on Andrew Gelman's Blog<a>:
+						    I obviously have some questions about this paper. To his credit, Norm Matloff has been very responsive to comments on his blog post and perhaps will assuage my doubts. Furthermore, I am not saying that the paper is categorically of no use. Maybe there is great value to thinking of neural nets as polynomial regression. As Dan Simpson <a href="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/"> writes on Andrew Gelman's Blog</a>:
 
 						    <blockquote cite="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/">
 							But the whole story–that neural networks can also be understood as being quite like polynomial regression and that analogy can allow us to improve our NN techniques–is the sort of story that we need to tell to understand how to make these methods better in a principled way.
@@ -199,7 +199,6 @@
 							<p>
 							Going off Dan's point, I just really hope this story we are telling ourselves is somewhat true. But I guess Columbus found America by convincing himself the world was much smaller than all scientific evidence suggested. So maybe it will at least be a useful fiction? For now, I'll stick with my handy DNN when it comes to concrete results. 
 							</p>
-
 							
 							<div id="disqus_thread"></div>
 <script>
