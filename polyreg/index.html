@@ -39,7 +39,7 @@
 		<script src="/js/skel.min.js"></script>
 		<script src="/js/skel-layers.min.js"></script>
 		<script src="/js/init.js"></script> <!-- NOTE: Pulls CSS files from static server -->
-		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 		<script>
 			$(document).ready(function(){
 				$('video').click( function(){
@@ -137,7 +137,7 @@
 							</p>
 
 							<p>
-							Recently, he posted his slides from a talk he gave entitled <a href='https://www.fharrell.com/talk/stratos19/'>Controversies in Predictive Modeling, Machine Learning, and Validation </a>. I'm not going to pretend that I understand everything in the slides. There are some statements I sort of understand (it's been a while since I read about the Laplace distriubtion). There are some statements I sort of feel might be wrong (isn't seeing if two ROC curves cross <a href='https://link.springer.com/article/10.1007/s10994-009-5119-5'>important</a>? / can't the slope of the early part of the curve help me understand <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432">'early behavior'</a> of a classifier?) And there is even one statement that led me to write this blog post. 
+							Recently, he posted his slides from a talk he gave entitled <a href='https://www.fharrell.com/talk/stratos19/'>Controversies in Predictive Modeling, Machine Learning, and Validation </a>. I'm not going to pretend that I understand everything in the slides, though a lot of it is interesting. There are some statements I only sort of understand (it's been a while since I read about the Laplace distriubtion). There are some statements I have mixed feelings about. And there is even one statement that led me to write this blog post. 
 							</p>
 
 							<p>The aformentioned "trigger" is found in the "Machine Learning" portion of his slides and really involves two statements: "deep learning ≡ neural network" and "neural network ≡ polynomial regression -- <a href="https://matloff.wordpress.com/2018/06/20/neural-networks-are-essentially-polynomial-regression/">Matloff</a>". The first is pretty standard, but the second statement caught my eye. I remember skimming the original paper, <a href="https://arxiv.org/abs/1806.06850"> Polynomial Regression As an Alternative to Neural Nets</a> by Cheng, Khomtchouk, Matloff, and Mohanty last summer but haven't thought about it much since. Matloff's blog post linked in the slides created a lot of discussion, with over 80 comments on the blog. Furthermore, if the article is still being quoted by prominent figures in the medical statistics community, maybe there is more to the article than I originally thought. So I decided to look at it again. </p>
@@ -167,7 +167,7 @@
 							<img src="images/concrete_table.png" style="display: grid; justify-content: center;"/>
 							</div>
 
-							First, it's a bit weird to report the correlation coefficient <span class="math inline">r</span> and not <span class="math inline">R^2</span>, but that's unimportant. Also, the correlation coefficient has error bars -- often obtained using the <a href="https://en.wikipedia.org/wiki/Fisher_transformation">Fisher transformation</a>/bootstrapping/etc. --  which are quite large for small/moderate N. As to why the authors chose the correlation coefficient just for this one dataset, I am unsure. Lastly, and most curiously, I vaguely remembered running a simple neural network on the Concrete dataset for some unrelated reason before. Therefore, I could just look back and see how well I did compared to the top performing "polyreg" model. The answer frustrates me.
+							First, it's a bit weird to report the correlation coefficient $r$ and not $R^2$, but that's unimportant. Also, the correlation coefficient has error bars -- often obtained using the <a href="https://en.wikipedia.org/wiki/Fisher_transformation">Fisher transformation</a>/bootstrapping/etc. --  which are quite large for small/moderate N. As to why the authors chose the correlation coefficient just for this one dataset, I am unsure. Lastly, and most curiously, I vaguely remembered running a simple neural network on the Concrete dataset for some unrelated reason before. Therefore, I could just look back and see how well I did compared to the top performing "polyreg" model. The answer frustrates me.
 							</p>
 
 							<p>
@@ -179,7 +179,7 @@
 							</p>
 
 							<p>
-							To be fair, I have no idea if this is what happened here. Furthermore, it's not truly a fair test because I am not sure how the authors split the data. Here's all I could find in the paper:
+							To be fair, I have no idea if this is what happened here. I only checked one dataset, though the difference in results was quite drastic. Furthermore, it's not truly a fair test because I am not sure how the authors split the data. Here's all I could find in the paper:
 
 							<blockquote cite="https://matloff.wordpress.com/2018/06/20/neural-networks-are-essentially-polynomial-regression/">
 							The dataset was split into training and test sets, with the number of cases
@@ -192,7 +192,7 @@
 						    <h3 id="overview">Maybe someone can explain it?</h3>
 
 						    <p>
-						    I obviously have some questions about this paper. To his credit, Norm Matloff has been very responsive to comments on his blog post and perhaps will assuage my doubts. Furthermore, I am not saying that the paper is categorically of no use. Maybe there is great value to thinking of neural nets as polynomial regression. As Dan Simpson <a href="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/"> writes on Andrew Gelman's Blog</a>:
+						    I obviously have some questions about this paper. To his credit, Norm Matloff has been very responsive to comments on his blog post and perhaps will assuage my doubts. Furthermore, I am not saying that the paper is categorically of no use. Maybe there is value to thinking of neural nets as polynomial regression. As Dan Simpson <a href="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/"> writes on Andrew Gelman's Blog</a>:
 
 						    <blockquote cite="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/">
 							But the whole story–that neural networks can also be understood as being quite like polynomial regression and that analogy can allow us to improve our NN techniques–is the sort of story that we need to tell to understand how to make these methods better in a principled way.
