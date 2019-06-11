@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Polynomial Regression vs. Neural Nets | Enthusiasm Curbed</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@cutearguments">
+		<meta name="twitter:title" content="Polyreg">
+		<meta name="twitter:description" content="Are neural nets just polynomial regression?">
+		<meta name="twitter:creator" content="@cutearguments">
+		<meta name="twitter:domain" content="http://enthusiasmcurbed.github.io/polyreg/">
+		<!--<meta name="twitter:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
+		<meta property="og:title" content="A Concrete Question: Polynomial Regression vs. Neural Nets" />
+		<!--<meta property="og:description" content="Many important real-world datasets come in the form of graphs or networks: social networks, knowledge graphs, protein-interaction networks, the World Wide Web, etc. (just to name a few). Yet, until recently, very little attention has been devoted to the generalization of neural..." /-->
+		<!--<meta name="og:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
+		<meta name="og:url" content="http://enthusiasmcurbed.github.io/polyreg/">
+
+		<noscript>
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/skel.css" />
+			<link rel="stylesheet" href="/css/style-xlarge.css" />
+		</noscript>
+		<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+		<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Open+Sans">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-layers.min.js"></script>
+		<script src="/js/init.js"></script> <!-- NOTE: Pulls CSS files from static server -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+		<script>
+			$(document).ready(function(){
+				$('video').click( function(){
+					if (this.paused) {
+			        this.play();
+			    } else {
+			        this.pause();
+			    }
+			    return false;
+				});
+			});
+		</script>
+
+		<style>
+	    .vega-actions a {
+	        margin-right: 12px;
+	        color: #757575;
+	        font-weight: normal;
+	        font-size: 13px;
+	    }
+	    .error {
+	        color: red;
+	    }
+	    </style>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@4"></script>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+	</head>
+	<body class="landing">
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<!-- Newsharecounts twitter counter (currently doesn't count re-tweets - bug?)
+		<script type="text/javascript" src="//newsharecounts.s3-us-west-2.amazonaws.com/nsc.js"></script><script type="text/javascript">window.newShareCountsAuto="smart";</script>
+		-->
+		<!-- Opensharecount twitter counter -->
+		<script type="text/javascript" src="//opensharecount.com/bubble.js"></script>
+
+		<!-- Header -->
+			<header id="header">
+				<ul class="icons">
+					<li>
+						<a href="https://github.com/enthusiasmcurbed" class="icon fa-github"></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/cutearguments" class="icon fa-twitter"></a>
+					</li>
+				</ul>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<!--<li><a href="/#two">Publications</a></li>-->
+						<li><a href="/polyreg/" class="active">Blog</a></li>
+						<li><a href="/polyreg/#footer">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- One -->
+				<section id="one" class="wrapper style1 special blogwrapper">
+					<div class="container 75%">
+						<header class="major blogheader">
+							<h2>A Concrete Question: Polynomial Regression vs. Neural Nets<br> </h2>
+							<p>Enthusiasm Curbed, June 10, 2019</p>
+						</header>
+						<div class="align-left blog">
+							<!--
+							<div class="figure">
+							<img src="images/gcn_web.png" alt="Multi-layer Graph Convolutional Network (GCN) with first-order filters." />
+							<p class="caption">Multi-layer Graph Convolutional Network (GCN) with first-order filters.</p>
+							-->
+							<div class="social_buttons">
+							<span class="twitter_button"><a href="https://twitter.com/share" class="twitter-share-button" data-text="A Concrete Question: Polynomial Regression vs. Neural Nets" data-url="http://enthusiasmcurbed.github.io/polyreg/" data-via="cutearguments" data-lang="en" data-show-count="false">Tweet</a> <a href="http://leadstories.com/opensharecount" target="_blank" class="osc-counter" data-dir="left"  data-url="http://enthusiasmcurbed.github.io/polyreg/" title="Powered by Lead Stories' OpenShareCount">0</a></span>
+  
+							<!--<span class="facebook_button"><div class="fb-share-button" data-href="http://tkipf.github.io/graph-convolutional-networks/" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftkipf.github.io%graph-convolutional-networks%2F&amp;src=sdkpreparse">Share</a></div></span>-->
+							</div>
+							<!--</div>-->
+
+
+							<h3 id="overview">Ahh that paper I meant to re-read...</h3>
+
+							<p>I don't know nearly as much statistics as I should, yet -- for some odd reason -- I enjoy watching Bayesians and Frequentists argue about issues I don't fully understand. One of the best ways to observe these discussions is to follow <a href="https://twitter.com/f2harrell">Frank Harrell on Twitter</a>. To be fair, Frank often also posts about interesting discussions on <a href='https://discourse.datamethods.org/'>DataMethods</a> and talks about statistical issues that <a href ='http://enthusiasmcurbed.github.io/post-hoc-power'> interest me too</a>. Generally, his discussions have led me to learn a suprising amount of statistics through Twitter. 
+							</p>
+
+							<p>
+							Recently, he posted his slides from a talk he gave entitled <a href='https://www.fharrell.com/talk/stratos19/'>Controversies in Predictive Modeling, Machine Learning, and Validation </a>. I'm not going to pretend that I understand everything in the slides. There are some statements I sort of understand (it's been a while since I read about the Laplace distriubtion). There are some statements I sort of feel might be wrong (isn't seeing if two ROC curves cross <a href='https://link.springer.com/article/10.1007/s10994-009-5119-5'>important</a>? / can't the slope of the early part of the curve help me understand <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432">'early behavior'</a> of a classifier?) And there is even one statement that led me to write this blog post. 
+							</p>
+
+							<p>The aformentioned "trigger" is found in the "Machine Learning" portion of his slides and really involves two statements: "deep learning ≡ neural network" and "neural network ≡ polynomial regression -- <a href="https://matloff.wordpress.com/2018/06/20/neural-networks-are-essentially-polynomial-regression/">Matloff</a>". The first is pretty standard, but the second statement caught my eye. I remember skimming the original paper, <a href="https://arxiv.org/abs/1806.06850"> Polynomial Regression As an Alternative to Neural Nets</a> by Cheng, Khomtchouk, Matloff, and Mohanty last summer but haven't thought about it much since. Matloff's blog post linked in the slides created a lot of discussion, with over 80 comments on the blog, and discussions on Hacker News and Reddit. Furthermore, if the article is still being quoted by prominent figures in the medical statistics community, maybe there is more to the article than I originally thought. So I decided to look at it again. </p>
+
+							<h3 id="overview">Uhh that seems low???</h3>
+
+							<p>
+							In Matloff's blog post, he makes some pretty big claims regarding his idea that neural networks are essentially polynomial regression (NNAEPR, as he calls it):
+
+							<blockquote cite="https://matloff.wordpress.com/2018/06/20/neural-networks-are-essentially-polynomial-regression/">
+							<ul>
+								<li>NNAEPR suggests that one may abandon using NNs altogether, and simply use PR instead.</li>
+								<li>We investigated this on a wide variety of datasets, and found that <strong>in every case PR did as well as, and often better than, NNs</strong>.</li>
+							</ul>
+							</blockquote>
+
+							As someone interested in using stuff that works, those are some pretty strong statements. Most of the comments on the original paper were people arguing theory such as universal function approximators and such. However, if this really had such big practical implications, why weren't more people talking about use?
+							</p>
+
+							<p>
+							I decided to skim through the paper myself, and see if the practical results were really that good. I can't say I have an abundance of time to keep up with all of the literature these days, so as with a lot of people, I started with the tables and relevant results. Therefore, I will fully disclose now that I did not read the entire paper. Thus, it might be irresponsible of me to even write this post, and I shall try not to pass too much judgement. However, I probably won't read the rest of the paper until someone can explain to me my results below.
+							</p>
+
+							<p>
+							What especially caught my eye is the following table:
+							<div class="figure">
+							<img src="images/concrete_table.png" style="display: grid; justify-content: center;"/>
+							</div>
+
+							First, it's a bit weird to report the correlation coefficient <span class="math inline">r</span> and not <span class="math inline">R^2</span>, but that's unimportant. Also, the correlation coefficient has error bars -- often obtained using the <a href="https://en.wikipedia.org/wiki/Fisher_transformation">Fisher transformation</a>/bootstrapping/etc. --  which are quite large for small/moderate N. As to why the authors chose the correlation coefficient just for this one dataset, I am unsure. Lastly, and most curiously, I vaguely remembered running a simple neural network on the Concrete dataset for some unrelated reason before. Therefore, I could just look back and see how well I did compared to the top performing "polyreg" model. The answer frustrates me.
+							</p>
+
+							<p>
+							The answer frustrates me because I obtained r=0.925 with a 95% CI of (0.897, 0.945) on an independent test set in under 2 minutes of training. This didn't involve extensive hyperparameter tuning or a crazy architecture. I used the simple PyTorch DNN architecture that I use for many simple applications and used fastai for training. All details are in the attached Google Colab notebook (LINK), where anyone can run the code if they wish. As you can see from the table above, my results beat "polyreg" and drastically outperform the authors' neural net benchmarks. Do I think this is because I am an amazing magician of deep learning? No -- even though I wish that explanation were true. I think what really happened is a bit more frustrating.
+							</p>
+
+							<p>
+							I think what probably happened here is what happens in most papers of the form, "here's a new method that outperforms the other ones." The authors try really hard to get good results with their own method and don't care as much about optimizing the results of the other methods. In fact, it is often against one's interest to care about optimizing the performance of the other methods. It's much easier to feel tall if you live among the Oompa Loompas, just don't get any ideas that you are going to dunk a basketball (I cannot explain how this analogy popped into my head).
+							</p>
+
+							<p>
+							To be fair, I have no idea if this is what happened here. Furthermore, it's not truly a fair test because I am not sure how the authors split the data. Here's all I could find in the paper:
+
+							<blockquote cite="https://matloff.wordpress.com/2018/06/20/neural-networks-are-essentially-polynomial-regression/">
+							The dataset was split into training and test sets, with the number of cases
+							for the latter being the min(10000,number of rows in full set).
+						    </blockquote>
+
+						    I don't quite know what this means. The concrete dataset is 1030 rows, so how is the test set just all of the rows? Are they implying they use a CV or nested-CV scheme to do this (in which case, where are the error bars)? Please let me know if I am just being dumb here. 
+						    </p>
+
+						    <h3 id="overview">Maybe someone can explain it?</h3>
+
+						    <p>
+						    I obviously have some questions about this paper. To his credit, Norm Matloff has been very responsive to comments on his blog post and perhaps will assuage my doubts. Furthermore, I am not saying that the paper is categorically of no use. Maybe there is great value to thinking of neural nets as polynomial regression. As Dan Simpson <a href="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/"> writes on Andrew Gelman's Blog<a>:
+
+						    <blockquote cite="https://statmodeling.stat.columbia.edu/2018/06/28/role-professional-singer-ham/">
+							But the whole story–that neural networks can also be understood as being quite like polynomial regression and that analogy can allow us to improve our NN techniques–is the sort of story that we need to tell to understand how to make these methods better in a principled way.
+						    </blockquote>
+
+						    Dan also notes a few problems he has with the paper itself, which you should read about in the post and are quite different with my own complaints. 
+							</p>
+
+							<p>
+							Going off Dan's point, I just really hope this story we are telling ourselves is somewhat true. But I guess Columbus found America by convincing himself the world was much smaller than all scientific evidence suggested. So maybe it will at least be a useful fiction? For now, I'll stick with my handy DNN when it comes to concrete results. 
+							</p>
+
+							
+							<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+    this.page.url = 'http://enthusiasmcurbed.github.io/polyreg';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'polyreg'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//enthusiasmcurbed.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+							<!--
+							<div class="figure">
+							<div class="video"><video width='640' preload='auto' muted controls poster='images/video_.png'>
+								<source src='images/video.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video>
+							</div>
+							<p class="caption">Semi-supervised classification with GCNs: Latent space dynamics for 300 training iterations with a single label per class. Labeled nodes are highlighted.</p>
+							</div>
+						-->
+						</div>
+				</section>
+
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="container">
+				<h2>Get in touch</h2>CUTEARGUMENTS [AT] GMAIL [DOT] COM</span>
+				<p></p>
+				<ul class="icons">
+					<li>
+						<a href="https://github.com/enthusiasmcurbed" class="icon fa-github"></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/cutearguments" class="icon fa-twitter"></a>
+					</li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; 2018 Enthusiasm Curbed</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	</body>
+</html>
