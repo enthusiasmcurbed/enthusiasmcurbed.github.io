@@ -125,6 +125,11 @@
 							</div>
 							<!--</div>-->
 
+							<h3 id="overview">Overview</h3>
+
+							<p>
+							I take a look at a paper claiming to show that polynomial regression has superior/competitive performance against neural networks. A curious table catches my eye, thus leading me to believe that the authors did not perform a fair benchmark of the two methods. 
+							</p>
 
 							<h3 id="overview">Ahh that paper I meant to reread...</h3>
 
@@ -162,7 +167,7 @@
 							<img src="images/concrete_table.png" style="display: grid; justify-content: center;"/>
 							</div>
 
-							First, it's a bit weird to report the correlation coefficient <span class="math inline">r</span> and not <span class="math inline">$R^2$</span>, but that's unimportant. Also, the correlation coefficient has error bars -- often obtained using the <a href="https://en.wikipedia.org/wiki/Fisher_transformation">Fisher transformation</a>/bootstrapping/etc. --  which are quite large for small/moderate N. As to why the authors chose the correlation coefficient just for this one dataset, I am unsure. Lastly, and most curiously, I vaguely remembered running a simple neural network on the Concrete dataset for some unrelated reason before. Therefore, I could just look back and see how well I did compared to the top performing "polyreg" model. The answer frustrates me.
+							First, it's a bit weird to report the correlation coefficient <span class="math inline">\r</span> and not <span class="math inline">\R^2</span>, but that's unimportant. Also, the correlation coefficient has error bars -- often obtained using the <a href="https://en.wikipedia.org/wiki/Fisher_transformation">Fisher transformation</a>/bootstrapping/etc. --  which are quite large for small/moderate N. As to why the authors chose the correlation coefficient just for this one dataset, I am unsure. Lastly, and most curiously, I vaguely remembered running a simple neural network on the Concrete dataset for some unrelated reason before. Therefore, I could just look back and see how well I did compared to the top performing "polyreg" model. The answer frustrates me.
 							</p>
 
 							<p>
