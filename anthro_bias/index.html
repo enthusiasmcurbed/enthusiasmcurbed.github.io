@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Anthopogenic Bias in Machine Learning? | Enthusiasm Curbed</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@cutearguments">
+		<meta name="twitter:title" content="antro_bias">
+		<meta name="twitter:description" content="Is this ML section of this new Nature paper useful?">
+		<meta name="twitter:creator" content="@cutearguments">
+		<meta name="twitter:domain" content="http://enthusiasmcurbed.github.io/anthro_bias/">
+		<!--<meta name="twitter:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
+		<meta property="og:title" content="Anthropogenic Bias in Machine Learning?" />
+		<!--<meta property="og:description" content="Many important real-world datasets come in the form of graphs or networks: social networks, knowledge graphs, protein-interaction networks, the World Wide Web, etc. (just to name a few). Yet, until recently, very little attention has been devoted to the generalization of neural..." /-->
+		<!--<meta name="og:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
+		<meta name="og:url" content="http://enthusiasmcurbed.github.io/antrho_bias/">
+
+		<noscript>
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/skel.css" />
+			<link rel="stylesheet" href="/css/style-xlarge.css" />
+		</noscript>
+		<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+		<link rel="stylesheet" type="text/css"
+		href="https://fonts.googleapis.com/css?family=Open+Sans">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-layers.min.js"></script>
+		<script src="/js/init.js"></script> <!-- NOTE: Pulls CSS files from static server -->
+		<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+		<script>
+			$(document).ready(function(){
+				$('video').click( function(){
+					if (this.paused) {
+			        this.play();
+			    } else {
+			        this.pause();
+			    }
+			    return false;
+				});
+			});
+		</script>
+
+		<style>
+	    .vega-actions a {
+	        margin-right: 12px;
+	        color: #757575;
+	        font-weight: normal;
+	        font-size: 13px;
+	    }
+	    .error {
+	        color: red;
+	    }
+	    </style>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@4"></script>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@2.6.0"></script>
+	    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@3"></script>
+	</head>
+	<body class="landing">
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<!-- Newsharecounts twitter counter (currently doesn't count re-tweets - bug?)
+		<script type="text/javascript" src="//newsharecounts.s3-us-west-2.amazonaws.com/nsc.js"></script><script type="text/javascript">window.newShareCountsAuto="smart";</script>
+		-->
+		<!-- Opensharecount twitter counter -->
+		<script type="text/javascript" src="//opensharecount.com/bubble.js"></script>
+
+		<!-- Header -->
+			<header id="header">
+				<ul class="icons">
+					<li>
+						<a href="https://github.com/enthusiasmcurbed" class="icon fa-github"></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/cutearguments" class="icon fa-twitter"></a>
+					</li>
+				</ul>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<!--<li><a href="/#two">Publications</a></li>-->
+						<li><a href="/anthro_bias/" class="active">Blog</a></li>
+						<li><a href="/anthro_bias/#footer">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- One -->
+				<section id="one" class="wrapper style1 special blogwrapper">
+					<div class="container 75%">
+						<header class="major blogheader">
+							<h2>Anthropogenic Bias in Machine Learning?<br> </h2>
+							<p>Enthusiasm Curbed, June 10, 2019</p>
+						</header>
+						<div class="align-left blog">
+							<!--
+							<div class="figure">
+							<img src="images/gcn_web.png" alt="Multi-layer Graph Convolutional Network (GCN) with first-order filters." />
+							<p class="caption">Multi-layer Graph Convolutional Network (GCN) with first-order filters.</p>
+							-->
+							<!--
+							<div class="social_buttons">
+							<span class="twitter_button"><a href="https://twitter.com/share" class="twitter-share-button" data-text="A Concrete Question: Polynomial Regression vs. Neural Nets" data-url="http://enthusiasmcurbed.github.io/polyreg/" data-via="cutearguments" data-lang="en" data-show-count="false">Tweet</a> <a href="http://leadstories.com/opensharecount" target="_blank" class="osc-counter" data-dir="left"  data-url="http://enthusiasmcurbed.github.io/polyreg/" title="Powered by Lead Stories' OpenShareCount">0</a></span>
+  							-->
+							<!--<span class="facebook_button"><div class="fb-share-button" data-href="http://tkipf.github.io/graph-convolutional-networks/" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftkipf.github.io%graph-convolutional-networks%2F&amp;src=sdkpreparse">Share</a></div></span>-->
+							</div>
+							<!--</div>-->
+
+							<h3 id="overview">Overview</h3>
+
+							<p>
+							I have some doubts about the ML results in a recent Nature paper, <a href='https://nature.com/articles/s41586-019-1540-5'>Anthropogenic biases in chemical reaction data hinder exploratory inorganic synthesis</a>
+							</p>
+
+							<h3 id="overview">Should I even be writing this?</h3>
+
+							<p>
+							WARNING: 
+							I am very tired, so I have avoided the temptation of commenting on this one for a few days. However, this paper has spread around enough that I feel responsible for alerting others to some of its issues. I will try to keep it short and respectful, with the ultimate aim of helping the authors improve the paper.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>
+							</p>
+
+							<p>
+							This is indeed a Nature paper, and if this is supposed to represent the pinnacle of chemical research, I believe the whole thing should be damn solid.
+							</p>
+
+							<p>
+							ANYWAY:
+							First, the experimental sections of this paper seem fine, and are even interesting. There is a bit of theorizing on causes, which I have some slight doubts about (have they really ruled out all other possible causes...), but that's more a philosophical concern.
+							</p>
+
+							<p>
+							For a decent overview of the paper, I suggest Derek Lowe's <a href='https://blogs.sciencemag.org/pipeline/archives/2019/09/16/dont-let-humans-pick-the-experimental-conditions'> blog post </a>.
+							</p>
+
+							<p>
+							ANYWAY...
+							My main issue with the paper is the machine learning section. As they state in the abstract:
+							<blockquote cite="https://blogs.sciencemag.org/pipeline/archives/2019/09/16/dont-let-humans-pick-the-experimental-conditions">
+							Machine-learning models that we train on a smaller randomized reaction dataset outperform models trained on larger human-selected reaction datasets, demonstrating the importance of identifying and addressing anthropogenic biases in scientific data.
+							</blockquote>
+							</p>
+
+							<p>
+							They show this result through a set of experiments; however, I have perhaps a very controversial claim, which people are free to push back on. My claim is that the paper, in its current state, would be better if the whole ML section was scrapped and replaced with the sentence "The anthropogenic biases we have demonstrated have potentially important implications for machine learning, where dataset bias has been identified as a key issue [any number of decent references]."
+							</p>
+
+							<p>
+							Unfortunately, I do not have time right now to fully reproduce/improve their results, but I will try to give a brief overview of why I believe the ML section is mostly noise. 
+							</p>
+
+							<h3 id="overview">Some Issues</h3>
+
+							<p>
+							1. No error bars or confidence intervals on Accuracy, AUC, MCC... This is pretty bad. If you look at Extended Data Table 2 below, you'll see that a lot of the accuracies and AUCs float around 0.5 . Basically, most of these machine learning models are close to random classifiers.
+							</p>
+
+							<div class="figure">
+							<img src="images/EDT2.png" style="display: grid; justify-content: center;"/>
+							</div>
+
+							<p>
+							1. Let's do a very quick experiment. Let's assume we do have a truly random classifier and see what AUC values this random classifier will obtain. Here's the code if you're interested:
+							</p>
+
+							<pre>
+							<code>
+def simulated_random_AUC_scores(observed_AUC, n_actives, n_inactives, n_iters=1000):
+    # use definition of Mann-Whitney Wilcoxon statistic to compute
+    # AUC values of random classifier
+
+    AUC_list = []
+    for i in range(n_iters):
+        random_ranking = np.random.permutation(range(n_actives+n_inactives))
+        actives = random_ranking[:n_actives]
+        inactives = random_ranking[n_actives:]
+        
+        mw_sum = 0
+        for active in actives:
+            for inactive in inactives:
+                if active > inactive:
+                    mw_sum += 1
+       
+        AUC_list.append(mw_sum/(n_actives*n_inactives))
+        
+    plot_scores(AUC_list, observed_AUC,
+                title='Simulated AUC scores from random classifier', bins=50)
+							</code>
+							</pre>
+
+							<p>
+							And here's the histogram of the AUC values our random classifier would obtain by chance with 41 samples from the positive class and 69 samples from the negative class, as was the case in the paper. 
+							</p>
+
+							<div class="figure">
+							<img src="images/random_AUCs.png" style="display: grid; justify-content: center;"/>
+							<p class="caption">The red line marks the 0.5 AUC expected of a random classifier, and the dotted black lines represent the 95% confidence intervals derived from the 2.5 and 97.5 percentiles. </p>
+							</div>
+
+							<p>
+							The red line marks the 0.5 AUC expected of a random classifier, and the dotted black lines represent the 95% confidence intervals derived from the 2.5 and 97.5 percentiles. As you can see, even a random classifier achieves an AUC around 0.6 a fair amount of the time. Looking through Extended Data Table 2, it now becomes clear that most of the classifiers are little more than random (or ever so slightly better than random)classifiers.
+							</p>
+
+							<p>
+							This should clearly be quantified. For longer treatises on the subject with special attention to chemistry, I suggest Anthony Nicholls' papers "Confidence limits, error bars and method comparison in molecular modeling" <a href="https://www.semanticscholar.org/paper/Confidence-limits%2C-error-bars-and-method-comparison-Nicholls/3f9b7effa2053c944ea96bd816d7345461a3d56a">Part 1</a> and <a href="https://link.springer.com/article/10.1007/s10822-016-9904-5">Part 2</a>.
+							</p>
+
+							<p> 
+							I'll even provide the function here derived from the paper, if the authors would like to use it. I can also provide suggestions of how to quanitfy the uncertainty regarding the accuracy and MCC scores.
+						    </p>
+
+						    <pre>
+							<code>
+def classical_AUC_CI(AUC, n_actives, n_inactives):
+    '''
+    Function to compute confidence intervals for AUC values
+    Uses the form provided in Nicholls (2014)
+    Note that returned intervals are often asymmetric.
+    '''
+    import scipy.stats
+    
+    var_active = ((AUC**2)*(1-AUC)/(1+AUC))/n_actives
+    var_inactive = (AUC*((1-AUC)**2)/(2-AUC))/n_inactives
+    
+    df_eff = (
+        (((var_active/n_actives)+(var_inactive/n_inactives))**2) / 
+        (
+            (((var_active/n_actives)**2)/(n_actives-1)) +
+            (((var_inactive/n_inactives)**2)/(n_inactives-1))
+        )
+    )
+    
+    std_error = np.sqrt(var_active+var_inactive)
+    
+    # transform to new space where continuous
+    logit_auc = np.log(AUC/(1-AUC))
+    logit_std_error = std_error * (1/(AUC*(1-AUC)))
+    
+    t_95 = scipy.stats.t.ppf(0.975,df_eff)
+    logit_lower_limit = logit_auc - t_95*logit_std_error
+    logit_upper_limit = logit_auc + t_95*logit_std_error
+    
+    lower_limit = 1/(1+np.exp(-1*logit_lower_limit))
+    upper_limit = 1/(1+np.exp(-1*logit_upper_limit))
+    
+    return lower_limit, upper_limit
+							</code>
+							</pre>
+
+							<p> 
+							For example, an AUC of 0.6 gives a 95% confidence interval of (0.48, 0.70) using the sample size and distribution of the test set in this paper. 
+						    </p>
+
+						    <p> 
+							2. No hyperparameter optimization. Essentially, no hyperparameters are tuned, which is why some of the models are doing so bad. By guess is that Naive Bayes and KNN perform the best because they require almost no tuning to do alright, but not great, in this setup. I'm sure with proper tuning that the results would change drastically. My guess is that the results would even likely still support their conclusion -- as I'll explain below.
+						    </p>
+
+						    <p> 
+							3. The test set is a bit of a "straw man". Many of you are probably wondering about the decent KNN results that support the authors' conclusion. I agree that they seem to favor the authors' hypothesis, but this seems redundant to me. <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> <i> The test set was made up of "randomly generated reaction conditions." </i> Therefore, it is unsurprising that the training set of "randomly generated reaction conditions." does better than the human-biased training set. 
+						    </p>
+
+						    <p> 
+							As the figure below shows, the closest neighbors of the samples in the triangle reactions training set are much closer (for reasonable k) than those for the human reactions training set. Again, this is by construction<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> <i>, and perfectly explains why KNN would perform better for the random dataset. 
+
+						    </p>
+
+						    <div class="figure">
+							<img src="images/KNN_distance.png" style="display: grid; justify-content: center;"/>
+							<p class="caption">Fig 4.b from paper. Shows the "Average distances from each training set to the kth nearest neighbour within the test set</p>
+							</div>
+
+
+						    <p>
+						    Overall, in ML, the hope is usually to build a training set with a similar distribution to the test set, or else generalization will be hard. I don't think this is that novel of a claim, but feel free to disagree. Is it good to know that there is clear bias in chemistry towards certain reagents and conditions, yes. Does this imply difficulty in constructing good ML models exploring all the true space of succesful reactions, sure. Do the ML results of this paper do much to convince me of the first claim implying the second, I don't think so. Unfortunately, my main takeaway from the ML results is that chemistry papers have pretty poor validation of ML results. 
+						    </p>
+
+							<p>
+							The reality is that without the ML section, this paper may not have gotten into Nature. And this <a href="https://phys.org/news/2019-09-chemists-bias-crop-machine-algorithm.html">phys.org piece</a> probably wouldn't have been written... Why must every writeup only focus on the ML section!
+							</p>
+
+							<p>
+							I won't pass judgement here as to whether the experimental results alone make a great paper deserving of top-journal status. I actually don't even know what that means anymore, since I have seem some horrific stuff in so-called "top journals." Perhaps it's telling that most biotech people don't trust much in any of these publications, and make sure to reproduce stuff first before even pursuing it. I won't delve into the state of the literature, but it is a bit sad if you ask me.
+							</p>
+
+							<p>
+							Nevertheless, I am still sleep deprvied and should probably stop talking now. I enjoyed the discussion of experimental results in the paper, and hope we start taking some more risks with reaction setups. But my guess is that we'll just keep doing what we're doing. We'll keep throwing ML stuff in papers because we think it adds credence. We'll keep reporting those results without proper uncertainty quantification because the field hasn't cared enough about norms. And we'll keep writing up those results in press articles because humans are biased towards certain things. Indeed, anthropogenic biases are everywhere.
+							</p>
+
+
+							<div class="footnotes">
+							<hr />
+							<ol>
+							<li id="fn1"><p>Full disclosure: I have never published in Nature, Science, or Cell. Therefore, I recognize the hilarity of me offering to "help improve" a paper that has ostensibly reached the zenith of publishing, while I sit back rambling on a blog. However, I do genuinely think the paper can be made better.</p></li>
+							<li id="fn2"><p>I feel really stupid saying this. I am usually the one telling others that "everything is obvious, once you know the answer!" (The book by Duncan Watts is good, by the way). However, I think the difference here is that we do know that similar distributions in training/test sets are imperative for succesful learning. Furthermore, it is not like I am merely swayed by the results in this paper of this fact. In fact, I am writing a whole post about how the results do not rigourously show the intended result.</p></li>
+							</ol>
+							<li id="fn3"><p>Presumably, the central assumption is that we want to be testing on random samples in the real world.</p></li>
+							</div>
+							
+							<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+    this.page.url = 'http://enthusiasmcurbed.github.io/anthro_bias';  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'anthro_bias; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//enthusiasmcurbed.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+							<!--
+							<div class="figure">
+							<div class="video"><video width='640' preload='auto' muted controls poster='images/video_.png'>
+								<source src='images/video.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video>
+							</div>
+							<p class="caption">Semi-supervised classification with GCNs: Latent space dynamics for 300 training iterations with a single label per class. Labeled nodes are highlighted.</p>
+							</div>
+						-->
+						</div>
+				</section>
+
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="container">
+				<h2>Get in touch</h2>CUTEARGUMENTS [AT] GMAIL [DOT] COM</span>
+				<p></p>
+				<ul class="icons">
+					<li>
+						<a href="https://github.com/enthusiasmcurbed" class="icon fa-github"></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/cutearguments" class="icon fa-twitter"></a>
+					</li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; 2018 Enthusiasm Curbed</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	</body>
+</html>
