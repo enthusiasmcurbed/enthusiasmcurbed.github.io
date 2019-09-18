@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Anthopogenic Bias in Machine Learning? | Enthusiasm Curbed</title>
+		<title>Anthopogenic Bias for Machine Learning? | Enthusiasm Curbed</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -17,7 +17,7 @@
 		<meta name="twitter:creator" content="@cutearguments">
 		<meta name="twitter:domain" content="http://enthusiasmcurbed.github.io/anthro_bias/">
 		<!--<meta name="twitter:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
-		<meta property="og:title" content="Anthropogenic Bias in Machine Learning?" />
+		<meta property="og:title" content="Anthropogenic Bias for Machine Learning?" />
 		<!--<meta property="og:description" content="Many important real-world datasets come in the form of graphs or networks: social networks, knowledge graphs, protein-interaction networks, the World Wide Web, etc. (just to name a few). Yet, until recently, very little attention has been devoted to the generalization of neural..." /-->
 		<!--<meta name="og:image" content="http://tkipf.github.io/graph-convolutional-networks/images/gcn_web.png">-->
 		<meta name="og:url" content="http://enthusiasmcurbed.github.io/antrho_bias/">
@@ -109,7 +109,7 @@
 				<section id="one" class="wrapper style1 special blogwrapper">
 					<div class="container 75%">
 						<header class="major blogheader">
-							<h2>Anthropogenic Bias in Machine Learning?<br> </h2>
+							<h2>Anthropogenic Bias for Machine Learning?<br> </h2>
 							<p>Enthusiasm Curbed, June 10, 2019</p>
 						</header>
 						<div class="align-left blog">
@@ -143,8 +143,7 @@
 							</p>
 
 							<p>
-							ANYWAY:
-							First, the experimental sections of this paper seem fine, and are even interesting. There is a bit of theorizing on causes, which I have some slight doubts about (have they really ruled out all other possible causes...), but that's more a philosophical concern.
+							First, I'll say that I find no problem with the experimental sections of this paper, and they are even really interesting. There is a bit of theorizing on causes, which I have some slight doubts about (have they really ruled out all other possible causes...), but that's more a philosophical concern.
 							</p>
 
 							<p>
@@ -216,7 +215,7 @@ def simulated_random_AUC_scores(observed_AUC, n_actives, n_inactives, n_iters=10
 							</div>
 
 							<p>
-							The red line marks the 0.5 AUC expected of a random classifier, and the dotted black lines represent the 95% confidence intervals derived from the 2.5 and 97.5 percentiles. As you can see, even a random classifier achieves an AUC around 0.6 a fair amount of the time. Looking through Extended Data Table 2, it now becomes clear that most of the classifiers are little more than random (or ever so slightly better than random)classifiers.
+							The red line marks the 0.5 AUC expected of a random classifier, and the dotted black lines represent the 95% confidence intervals derived from the 2.5 and 97.5 percentiles. As you can see, even a random classifier achieves an AUC around 0.6 a fair amount of the time. Looking through Extended Data Table 2, it now becomes clear that most of the classifiers are little more than random (or ever so slightly better than random) classifiers.
 							</p>
 
 							<p>
@@ -224,7 +223,7 @@ def simulated_random_AUC_scores(observed_AUC, n_actives, n_inactives, n_iters=10
 							</p>
 
 							<p> 
-							I'll even provide the function here derived from the paper, if the authors would like to use it. I can also provide suggestions of how to quanitfy the uncertainty regarding the accuracy and MCC scores.
+							I'll even provide the function here derived from the paper, if the authors would like to use it. I can also provide suggestions of how to quantify the uncertainty regarding the accuracy and MCC scores.
 						    </p>
 
 						    <pre>
@@ -278,7 +277,7 @@ def classical_AUC_CI(AUC, n_actives, n_inactives):
 						    </p>
 
 						    <p> 
-							As the figure below shows, the closest neighbors of the samples in the triangle reactions training set are much closer (for reasonable k) than those for the human reactions training set. Again, this is by construction<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> <i>, and perfectly explains why KNN would perform better for the random dataset. 
+							As the figure below shows, the closest neighbors of the samples in the triangle reactions training set are much closer (for reasonable k) than those for the human reactions training set. Again, this is by construction<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>, and perfectly explains why KNN would perform better for the random dataset. 
 
 						    </p>
 
@@ -289,7 +288,7 @@ def classical_AUC_CI(AUC, n_actives, n_inactives):
 
 
 						    <p>
-						    Overall, in ML, the hope is usually to build a training set with a similar distribution to the test set, or else generalization will be hard. I don't think this is that novel of a claim, but feel free to disagree. Is it good to know that there is clear bias in chemistry towards certain reagents and conditions, yes. Does this imply difficulty in constructing good ML models exploring all the true space of succesful reactions, sure. Do the ML results of this paper do much to convince me of the first claim implying the second, I don't think so. Unfortunately, my main takeaway from the ML results is that chemistry papers have pretty poor validation of ML results. 
+						    Overall, in ML, the hope is usually to build a training set with a similar distribution to the test set, or else generalization will be hard. I don't think this is that novel of a claim, but feel free to disagree. Is it good to know that there is clear bias in chemistry towards certain reagents and conditions, yes. Does this imply difficulty in constructing good ML models exploring all the true space of successful reactions, sure. Do the ML results of this paper do much to convince me of the first claim implying the second, I don't think so. Unfortunately, my main takeaway from the ML results is that chemistry papers have pretty poor validation of ML results. 
 						    </p>
 
 							<p>
@@ -301,7 +300,7 @@ def classical_AUC_CI(AUC, n_actives, n_inactives):
 							</p>
 
 							<p>
-							Nevertheless, I am still sleep deprvied and should probably stop talking now. I enjoyed the discussion of experimental results in the paper, and hope we start taking some more risks with reaction setups. But my guess is that we'll just keep doing what we're doing. We'll keep making people put ML stuff in papers because we think it adds credence. We'll keep reporting those results without proper uncertainty quantification because the field hasn't cared enough about norms. And we'll keep writing up those results in press articles because humans are biased towards certain things. Indeed, anthropogenic biases are everywhere.
+							Nevertheless, I am still sleep deprived and should probably stop talking now. I enjoyed the discussion of experimental results in the paper, and hope we start taking some more risks with reaction setups. But my guess is that we'll just keep doing what we're doing. We'll keep making people put ML stuff in papers because we think it adds credence. We'll keep reporting those results without proper uncertainty quantification because the field hasn't cared enough about norms. And we'll keep writing up those results in press articles because humans are biased towards hearing certain things. Indeed, anthropogenic biases are everywhere.
 							</p>
 
 
@@ -309,9 +308,9 @@ def classical_AUC_CI(AUC, n_actives, n_inactives):
 							<hr />
 							<ol>
 							<li id="fn1"><p>Full disclosure: I have never published in Nature, Science, or Cell. Therefore, I recognize the hilarity of me offering to "help improve" a paper that has ostensibly reached the zenith of publishing, while I sit back rambling on a blog. However, I do genuinely think the paper can be made better.</p></li>
-							<li id="fn2"><p>I feel really stupid saying this. I am usually the one telling others that "everything is obvious, once you know the answer!" (The book by Duncan Watts is good, by the way). However, I think the difference here is that we do know that similar distributions in training/test sets are imperative for succesful learning. Furthermore, it is not like I am merely swayed by the results in this paper of this fact. In fact, I am writing a whole post about how the results do not rigourously show the intended result.</p></li>
-							</ol>
+							<li id="fn2"><p>I feel really stupid saying this. I am usually the one telling others that "everything is obvious, once you know the answer!" (The book by Duncan Watts is good, by the way). However, I think the difference here is that we do know that similar distributions in training/test sets are imperative for successful learning. Furthermore, it is not like I am merely swayed by the results in this paper of this fact. In fact, I am writing a whole post about how the results do not rigorously show the intended result.</p></li>
 							<li id="fn3"><p>Presumably, the central assumption is that we want to be testing on random samples in the real world.</p></li>
+							</ol>
 							</div>
 							
 							<div id="disqus_thread"></div>
@@ -357,7 +356,7 @@ var disqus_config = function () {
 					</li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; 2018 Enthusiasm Curbed</li>
+					<li>&copy; 2018-19 Enthusiasm Curbed</li>
 					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
 				</ul>
 			</div>
